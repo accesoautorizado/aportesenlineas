@@ -2,555 +2,792 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aportes en Línea - Independientes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Aportes en Línea - Independientes | Responsive</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
-    background:#f5f5f5;
+body {
+    background: #f5f7fa;
+    overflow-x: hidden;
+    width: 100%;
 }
 
-/* HEADER */
-.top-header{
-    width:100%;
-    background:#fff;
-    border-bottom:1px solid #e5e5e5;
+/* === HEADER RESPONSIVE === */
+.top-header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+    z-index: 20;
 }
 
-.top-container{
-    max-width:1400px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 30px;
+.top-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.logo-circle{
-    width:50px;
-    height:50px;
-    background:linear-gradient(45deg,#ffb300,#2e7d32);
-    border-radius:50%;
+.logo-circle {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(145deg, #ffb300, #2e7d32);
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
-.logo h2{
-    color:#198754;
-    font-size:32px;
+.logo h2 {
+    color: #198754;
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 700;
 }
 
-.main-menu{
-    display:flex;
-    gap:20px;
-    align-items:center;
+.main-menu {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.main-menu a{
-    text-decoration:none;
-    color:#444;
-    font-weight:500;
+.main-menu a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    font-size: 15px;
+    transition: 0.2s;
 }
 
-.active-tab{
-    padding:12px 28px;
-    border:1px solid #9be3bf;
-    border-radius:40px;
-    background:#edfdf3;
-    color:#198754!important;
+.active-tab {
+    padding: 8px 22px;
+    border: 1px solid #9be3bf;
+    border-radius: 40px;
+    background: #edfdf3;
+    color: #198754 !important;
+    font-weight: 600;
 }
 
-.right-menu{
-    display:flex;
-    align-items:center;
-    gap:40px;
+.right-menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
-.login-btn{
-    background:#008f68;
-    color:#fff;
-    border:none;
-    border-radius:40px;
-    padding:15px 35px;
-    font-size:20px;
-    cursor:pointer;
+.right-menu a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    font-size: 14px;
 }
 
-/* NAV */
-.navbar{
-    background:#fff;
-    border-bottom:1px solid #ececec;
+.login-btn {
+    background: #008f68;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 10px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.nav-container{
-    max-width:1400px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    gap:40px;
-    padding:20px 30px;
+.login-btn:hover {
+    background: #006d4e;
 }
 
-.nav-container a{
-    text-decoration:none;
-    color:#5d5d5d;
-    font-size:18px;
+/* === NAVBAR === */
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #ececec;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
 }
 
-.nav-container .active{
-    color:#008f68;
-    border-bottom:3px solid #008f68;
-    padding-bottom:18px;
+.nav-container {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 16px 30px;
 }
 
-/* HERO */
-.hero{
-    position:relative;
-    height:600px;
-    overflow:hidden;
-    background:#666;
+.nav-container a {
+    text-decoration: none;
+    color: #5d5d5d;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.2s;
 }
 
-.hero::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to right,
-    rgba(255,255,255,.96) 0%,
-    rgba(255,255,255,.75) 35%,
-    rgba(0,0,0,.15) 100%);
-    z-index:1;
+.nav-container .active {
+    color: #008f68;
+    border-bottom: 3px solid #008f68;
+    padding-bottom: 14px;
 }
 
-.hero-content{
-    position:absolute;
-    z-index:2;
-    top:50%;
-    left:70px;
-    transform:translateY(-50%);
-    max-width:500px;
+/* === HERO MODERNIZADO Y RESPONSIVE === */
+.hero {
+    position: relative;
+    min-height: 550px;
+    background: linear-gradient(135deg, #f0f9f4 0%, #e2f0e8 100%);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
 }
 
-
-
-.hero button{
-    margin-top:30px;
-    background:#fff;
-    border:none;
-    border-radius:50px;
-    padding:18px 35px;
-    font-size:24px;
-    cursor:pointer;
-    box-shadow:0 4px 15px rgba(0,0,0,.1);
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 90% 20%, rgba(255,215,130,0.2) 0%, rgba(0,0,0,0) 70%);
+    z-index: 0;
 }
 
-.hero img{
-    position:absolute;
-    right:130px;
-    bottom:0;
-    height:95%;
-    z-index:2;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 550px;
+    margin-left: 8%;
+    padding: 40px 20px;
 }
 
-.icon-center{
-    position:absolute;
-    top:140px;
-    left:52%;
-    transform:translateX(-50%);
-    font-size:120px;
-    color:#f6b51c;
-    z-index:2;
+.hero-content small {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #2c7a4b;
+    display: inline-block;
+    margin-bottom: 15px;
 }
 
-.slider-dots{
-    position:absolute;
-    z-index:2;
-    bottom:80px;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    gap:12px;
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1e3a2f;
+    margin-bottom: 20px;
 }
 
-.slider-dots span{
-    width:12px;
-    height:12px;
-    background:#cfcfcf;
-    border-radius:50%;
+.hero-content p {
+    font-size: 18px;
+    color: #4a5b52;
+    margin-bottom: 30px;
 }
 
-.slider-dots .active{
-    background:#fff;
+.hero-content button {
+    background: #008f68;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 35px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
 }
 
-.arrow{
-    position:absolute;
-    z-index:2;
-    top:50%;
-    transform:translateY(-50%);
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    background:rgba(255,255,255,.6);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:30px;
-    cursor:pointer;
+.hero-content button:hover {
+    background: #006d4e;
+    transform: scale(1.02);
 }
 
-.arrow.left{
-    left:20px;
+.hero-img {
+    position: absolute;
+    right: 5%;
+    bottom: 0;
+    width: 38%;
+    max-width: 400px;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
 }
 
-.arrow.right{
-    right:20px;
+.icon-center {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 80px;
+    color: #f6b51c;
+    opacity: 0.3;
+    z-index: 1;
 }
 
-/* CARDS */
-.cards{
-    max-width:1400px;
-    margin:-50px auto 50px;
-    position:relative;
-    z-index:5;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    padding:0 20px;
+/* flechas del hero (banner slider) las movemos al slider real */
+.arrow {
+    display: none;
 }
 
-.card{
-    background:#fff;
-    border-radius:15px;
-    padding:35px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+/* slider dots del hero antiguo lo reemplazamos por slider real */
+.slider-dots {
+    display: none;
 }
 
-.card h3{
-    font-size:28px;
-    color:#333;
+/* === SLIDER CARRUSEL BANNERS === */
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 30px auto 20px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    background: #fefefe;
 }
 
-/* CHAT */
-.chat{
-    position:fixed;
-    right:25px;
-    bottom:25px;
-    width:85px;
-    height:85px;
-    border-radius:50%;
-    background:#d9f2e6;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:40px;
-    cursor:pointer;
-    box-shadow:0 10px 20px rgba(0,0,0,.15);
+.slide {
+    display: none;
+    width: 100%;
 }
 
-@media(max-width:992px){
-
-.hero{
-height:auto;
-padding:80px 20px;
+.slide.active {
+    display: block;
+    animation: fadeEffect 0.5s ease;
 }
 
-.hero img{
-display:none;
+@keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
 }
 
-.hero-content{
-position:relative;
-left:auto;
-top:auto;
-transform:none;
+.slide img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 3 / 1;
 }
 
-.cards{
-grid-template-columns:1fr;
-}
-}
-    .slider{
-    position:relative;
-    width:100%;
-    overflow:hidden;
-    background:#fff;
-}
-
-.slide{
-    display:none;
-}
-
-.slide.active{
-    display:block;
-}
-
-.slide img{
-    width:100%;
-    display:block;
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    backdrop-filter: blur(4px);
 }
 
-.prev,
-.next{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:50px;
-    height:50px;
-    border:none;
-    border-radius:50%;
-    background:rgba(255,255,255,.8);
-    cursor:pointer;
-    z-index:10;
-    font-size:24px;
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.8);
 }
 
-.prev{
-    left:20px;
+.prev {
+    left: 15px;
 }
 
-.next{
-    right:20px;
+.next {
+    right: 15px;
 }
 
-.dots{
-    position:absolute;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    gap:10px;
+.dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
 }
 
-.dot{
-    width:12px;
-    height:12px;
-    border-radius:50%;
-    background:#d6d6d6;
-    cursor:pointer;
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.dot.active{
-    background:#fff;
+.dot.active {
+    background: #008f68;
+    width: 28px;
+    border-radius: 20px;
 }
 
-@media(max-width:768px){
-
-.prev,
-.next{
-    width:40px;
-    height:40px;
-    font-size:18px;
+/* === CARDS RESPONSIVE === */
+.cards {
+    max-width: 1400px;
+    margin: 50px auto 70px;
+    position: relative;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    padding: 0 25px;
 }
 
+.card {
+    background: #fff;
+    border-radius: 28px;
+    padding: 32px 28px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+    border: 1px solid #eef2f0;
 }
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 40px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    font-size: 26px;
+    color: #1f2e2a;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.card p {
+    color: #5e6e66;
+    line-height: 1.4;
+}
+
+/* === CHAT FLOTANTE === */
+.chat {
+    position: fixed;
+    right: 20px;
+    bottom: 25px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #d9f2e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    z-index: 99;
+    transition: 0.2s;
+}
+
+.chat:hover {
+    transform: scale(1.05);
+    background: #c0e6d6;
+}
+
+/* ========== MEDIA QUERIES RESPONSIVE ========== */
+@media (max-width: 1100px) {
+    .hero-content h1 {
+        font-size: 40px;
+    }
+    .hero-img {
+        width: 32%;
+    }
+}
+
+@media (max-width: 992px) {
+    .top-container {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    .logo {
+        justify-content: center;
+    }
+    .main-menu {
+        justify-content: center;
+    }
+    .right-menu {
+        justify-content: center;
+    }
+    .nav-container {
+        gap: 20px;
+        justify-content: center;
+    }
+    .hero {
+        min-height: auto;
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        margin: 0 auto;
+        text-align: center;
+        padding: 60px 20px 30px;
+    }
+    .hero-img {
+        position: relative;
+        width: 60%;
+        max-width: 280px;
+        margin: 0 auto 30px;
+        right: auto;
+        bottom: auto;
+    }
+    .icon-center {
+        display: none;
+    }
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    .slide img {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-container {
+        padding: 12px 18px;
+    }
+    .logo h2 {
+        font-size: 22px;
+    }
+    .logo-circle {
+        width: 40px;
+        height: 40px;
+    }
+    .main-menu a {
+        font-size: 13px;
+    }
+    .active-tab {
+        padding: 5px 14px;
+    }
+    .login-btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+    .nav-container {
+        padding: 12px 18px;
+        gap: 16px;
+    }
+    .nav-container a {
+        font-size: 14px;
+    }
+    .hero-content h1 {
+        font-size: 30px;
+    }
+    .hero-content p {
+        font-size: 16px;
+    }
+    .hero-content button {
+        padding: 12px 28px;
+        font-size: 16px;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+        padding: 0 18px;
+        margin-top: 30px;
+    }
+    .card {
+        padding: 24px;
+    }
+    .prev, .next {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+    .dots {
+        bottom: 10px;
+        gap: 8px;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+    .dot.active {
+        width: 20px;
+    }
+    .chat {
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+        right: 15px;
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 26px;
+    }
+    .hero-content button {
+        width: 80%;
+    }
+    .right-menu {
+        gap: 15px;
+    }
+    .right-menu a {
+        font-size: 12px;
+    }
+    .login-btn {
+        padding: 6px 16px;
+    }
+    .nav-container a {
+        font-size: 12px;
+    }
+    .slide img {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* === EXTRAS PARA MEJORAR TACTIL Y SCROLL === */
+button, .login-btn, .chat, .prev, .next, .dot {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* seccion slider que originalmente estaba duplicada, la unificamos */
 </style>
 </head>
 <body>
 
 <header class="top-header">
-<div class="top-container">
-
-<div class="logo">
-<div class="logo-circle"></div>
-<h2>aportes<br>en línea</h2>
-</div>
-
-<nav class="main-menu">
-<a href="#">Empresas</a>
-<a href="#" class="active-tab">Independientes</a>
-<a href="#">Administradora</a>
-<a href="#">Datos en línea</a>
-</nav>
-
-<div class="right-menu">
-<a href="#">Medios de pago</a>
-<a href="#">Centro de ayuda</a>
-<button class="login-btn">Inicia sesión</button>
-</div>
-
-</div>
+    <div class="top-container">
+        <div class="logo">
+            <div class="logo-circle"></div>
+            <h2>aportes<br>en línea</h2>
+        </div>
+        <nav class="main-menu">
+            <a href="#">Empresas</a>
+            <a href="#" class="active-tab">Independientes</a>
+            <a href="#">Administradora</a>
+            <a href="#">Datos en línea</a>
+        </nav>
+        <div class="right-menu">
+            <a href="#">Medios de pago</a>
+            <a href="#">Centro de ayuda</a>
+            <button class="login-btn">Inicia sesión</button>
+        </div>
+    </div>
 </header>
 
 <nav class="navbar">
-<div class="nav-container">
-<a class="active" href="#">Inicio</a>
-<a href="#">Quiénes somos</a>
-<a href="#">Productos</a>
-<a href="#">Contáctenos</a>
-</div>
+    <div class="nav-container">
+        <a class="active" href="#">Inicio</a>
+        <a href="#">Quiénes somos</a>
+        <a href="#">Productos</a>
+        <a href="#">Contáctenos</a>
+    </div>
 </nav>
 
 <section class="hero">
-
-<div class="arrow left">‹</div>
-<div class="arrow right">›</div>
-
-<div class="hero-content">
-<small>INDEPENDIENTES</small>
-
-<h1>
-POLÍTICA DE
-TRATAMIENTO DE DATOS
-PERSONALES
-</h1>
-
-<p>
-Hemos actualizado nuestra política te invitamos a consultarla
-</p>
-
-<button>Ingresa aquí</button>
-</div>
-
-<div class="icon-center">📄</div>
-
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900"
-alt="persona">
-
-<div class="slider-dots">
-<span></span>
-<span></span>
-<span></span>
-<span class="active"></span>
-<span></span>
-<span></span>
-</div>
-
-<section class="slider">
-
-    <div class="slide active">
-        <picture>
-            <source media="(max-width:768px)"
-                srcset="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108">
-
-            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014">
-        </picture>
+    <div class="hero-content">
+        <small>INDEPENDIENTES</small>
+        <h1>POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES</h1>
+        <p>Hemos actualizado nuestra política, te invitamos a consultarla</p>
+        <button>Ingresa aquí</button>
     </div>
-
-    <div class="slide">
-        <picture>
-            <source media="(max-width:768px)"
-                srcset="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS--IND--CELULAR-28-01-2026.png/c0514fca-cd83-9dd6-96a5-44eef5d3266e?t=1769633194849">
-
-            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS-28-01-2026.png/b0db14ad-99f0-0ea8-fac8-1b5f4b673b06?t=1769633175911">
-        </picture>
-    </div>
-
-    <div class="slide">
-        <picture>
-            <source media="(max-width:768px)"
-                srcset="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734">
-
-            <img src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039">
-        </picture>
-    </div>
-
-    <div class="slide">
-        <picture>
-            <source media="(max-width:768px)"
-                srcset="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233">
-
-            <img src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670">
-        </picture>
-    </div>
-
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-
-    <div class="dots"></div>
-
+    <div class="icon-center">📄</div>
+    <img class="hero-img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format" alt="persona">
 </section>
 
-<div class="chat">
-🤖
+<!-- CARRUSEL SLIDER PRINCIPAL (banners) -->
+<section class="slider">
+    <div class="slide active">
+        <picture>
+            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108">
+            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014" alt="banner 1">
+        </picture>
+    </div>
+    <div class="slide">
+        <picture>
+            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS--IND--CELULAR-28-01-2026.png/c0514fca-cd83-9dd6-96a5-44eef5d3266e?t=1769633194849">
+            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS-28-01-2026.png/b0db14ad-99f0-0ea8-fac8-1b5f4b673b06?t=1769633175911" alt="banner 2">
+        </picture>
+    </div>
+    <div class="slide">
+        <picture>
+            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734">
+            <img src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039" alt="banner 3">
+        </picture>
+    </div>
+    <div class="slide">
+        <picture>
+            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233">
+            <img src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670" alt="banner 4">
+        </picture>
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+</section>
+
+<!-- SECCIÓN CARDS MEJORADA -->
+<div class="cards">
+    <div class="card">
+        <h3>✔️ Fácil y rápido</h3>
+        <p>Registra tus aportes desde cualquier dispositivo, sin complicaciones.</p>
+    </div>
+    <div class="card">
+        <h3>🔒 Datos seguros</h3>
+        <p>Protegemos tu información con altos estándares de seguridad.</p>
+    </div>
+    <div class="card">
+        <h3>📱 Acceso móvil</h3>
+        <p>Diseño adaptado para que gestiones tus aportes donde estés.</p>
+    </div>
 </div>
+
+<div class="chat">🤖</div>
+
 <script>
+// CARRUSEL RESPONSIVE con dots y transición automática
+const slides = document.querySelectorAll('.slider .slide');
+const dotsContainer = document.querySelector('.slider .dots');
+let currentIndex = 0;
+let autoInterval;
 
-const slides=document.querySelectorAll('.slide');
-const dotsContainer=document.querySelector('.dots');
+// Limpiar dots si existieran previamente
+if(dotsContainer) {
+    dotsContainer.innerHTML = '';
+}
 
-let current=0;
-
-slides.forEach((slide,index)=>{
-
-    const dot=document.createElement('div');
+// Generar dots dinámicamente
+slides.forEach((_, idx) => {
+    const dot = document.createElement('div');
     dot.classList.add('dot');
-
-    if(index===0){
-        dot.classList.add('active');
-    }
-
-    dot.addEventListener('click',()=>showSlide(index));
-
+    if (idx === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+        stopAutoSlide();
+        showSlide(idx);
+        startAutoSlide();
+    });
     dotsContainer.appendChild(dot);
 });
 
-const dots=document.querySelectorAll('.dot');
+const dots = document.querySelectorAll('.slider .dot');
 
-function showSlide(index){
-
-    slides.forEach(slide=>{
-        slide.classList.remove('active');
-    });
-
-    dots.forEach(dot=>{
-        dot.classList.remove('active');
-    });
-
+function showSlide(index) {
+    if (index < 0) index = 0;
+    if (index >= slides.length) index = slides.length - 1;
+    
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
     slides[index].classList.add('active');
-    dots[index].classList.add('active');
-
-    current=index;
+    if (dots[index]) dots[index].classList.add('active');
+    currentIndex = index;
 }
 
-document.querySelector('.next').addEventListener('click',()=>{
+function nextSlide() {
+    let newIndex = currentIndex + 1;
+    if (newIndex >= slides.length) newIndex = 0;
+    showSlide(newIndex);
+}
 
-    current++;
+function prevSlide() {
+    let newIndex = currentIndex - 1;
+    if (newIndex < 0) newIndex = slides.length - 1;
+    showSlide(newIndex);
+}
 
-    if(current>=slides.length){
-        current=0;
+function startAutoSlide() {
+    if (autoInterval) clearInterval(autoInterval);
+    autoInterval = setInterval(() => {
+        nextSlide();
+    }, 5000);
+}
+
+function stopAutoSlide() {
+    if (autoInterval) {
+        clearInterval(autoInterval);
+        autoInterval = null;
     }
+}
 
-    showSlide(current);
-});
+// Eventos para botones next/prev
+const nextBtn = document.querySelector('.slider .next');
+const prevBtn = document.querySelector('.slider .prev');
 
-document.querySelector('.prev').addEventListener('click',()=>{
+if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        stopAutoSlide();
+        nextSlide();
+        startAutoSlide();
+    });
+}
 
-    current--;
+if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        stopAutoSlide();
+        prevSlide();
+        startAutoSlide();
+    });
+}
 
-    if(current<0){
-        current=slides.length-1;
+// Iniciar slider automático al cargar
+startAutoSlide();
+
+// Pausar al pasar mouse sobre slider
+const sliderContainer = document.querySelector('.slider');
+if (sliderContainer) {
+    sliderContainer.addEventListener('mouseenter', () => {
+        stopAutoSlide();
+    });
+    sliderContainer.addEventListener('mouseleave', () => {
+        startAutoSlide();
+    });
+    // Para móviles: pausar con touchstart
+    sliderContainer.addEventListener('touchstart', () => {
+        stopAutoSlide();
+    });
+    sliderContainer.addEventListener('touchend', () => {
+        startAutoSlide();
+    });
+}
+
+// Opcional: Ajuste de imagenes hero para que en móvil se vea bien
+function adjustHeroImage() {
+    const heroImg = document.querySelector('.hero-img');
+    if (window.innerWidth <= 768) {
+        if (heroImg && !heroImg.hasAttribute('data-original')) {
+            heroImg.setAttribute('data-original', heroImg.src);
+            // mantener misma imagen, solo aseguramos que no se deforme
+            heroImg.style.maxWidth = '220px';
+        }
+    } else {
+        if (heroImg) {
+            heroImg.style.maxWidth = '';
+        }
     }
+}
+window.addEventListener('resize', adjustHeroImage);
+adjustHeroImage();
 
-    showSlide(current);
-});
-
-setInterval(()=>{
-
-    current++;
-
-    if(current>=slides.length){
-        current=0;
-    }
-
-    showSlide(current);
-
-},5000);
-
+// Arreglamos posible error: prev/next del hero ocultos no interfieren, todo ok
+console.log('Página completamente responsiva activada');
 </script>
 </body>
 </html>
