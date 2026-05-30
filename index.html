@@ -145,24 +145,7 @@ body{
     max-width:500px;
 }
 
-.hero small{
-    color:#f2a100;
-    font-size:26px;
-    font-weight:600;
-}
 
-.hero h1{
-    margin-top:15px;
-    font-size:56px;
-    line-height:1.1;
-    color:#111;
-}
-
-.hero p{
-    margin-top:25px;
-    font-size:28px;
-    color:#333;
-}
 
 .hero button{
     margin-top:30px;
@@ -301,6 +284,80 @@ transform:none;
 grid-template-columns:1fr;
 }
 }
+    .slider{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    background:#fff;
+}
+
+.slide{
+    display:none;
+}
+
+.slide.active{
+    display:block;
+}
+
+.slide img{
+    width:100%;
+    display:block;
+}
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.8);
+    cursor:pointer;
+    z-index:10;
+    font-size:24px;
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
+}
+
+.dots{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:10px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#d6d6d6;
+    cursor:pointer;
+}
+
+.dot.active{
+    background:#fff;
+}
+
+@media(max-width:768px){
+
+.prev,
+.next{
+    width:40px;
+    height:40px;
+    font-size:18px;
+}
+
+}
 </style>
 </head>
 <body>
@@ -373,27 +430,127 @@ alt="persona">
 <span></span>
 </div>
 
-</section>
+<section class="slider">
 
-<section class="cards">
+    <div class="slide active">
+        <picture>
+            <source media="(max-width:768px)"
+                srcset="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108">
 
-<div class="card">
-<h3>📱 Calcula tu aportes</h3>
-</div>
+            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014">
+        </picture>
+    </div>
 
-<div class="card">
-<h3>💳 Liquida y paga tu planilla</h3>
-</div>
+    <div class="slide">
+        <picture>
+            <source media="(max-width:768px)"
+                srcset="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS--IND--CELULAR-28-01-2026.png/c0514fca-cd83-9dd6-96a5-44eef5d3266e?t=1769633194849">
 
-<div class="card">
-<h3>📄 Certificados de aportes</h3>
-</div>
+            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS-28-01-2026.png/b0db14ad-99f0-0ea8-fac8-1b5f4b673b06?t=1769633175911">
+        </picture>
+    </div>
+
+    <div class="slide">
+        <picture>
+            <source media="(max-width:768px)"
+                srcset="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734">
+
+            <img src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039">
+        </picture>
+    </div>
+
+    <div class="slide">
+        <picture>
+            <source media="(max-width:768px)"
+                srcset="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233">
+
+            <img src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670">
+        </picture>
+    </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+
+    <div class="dots"></div>
 
 </section>
 
 <div class="chat">
 🤖
 </div>
+<script>
 
+const slides=document.querySelectorAll('.slide');
+const dotsContainer=document.querySelector('.dots');
+
+let current=0;
+
+slides.forEach((slide,index)=>{
+
+    const dot=document.createElement('div');
+    dot.classList.add('dot');
+
+    if(index===0){
+        dot.classList.add('active');
+    }
+
+    dot.addEventListener('click',()=>showSlide(index));
+
+    dotsContainer.appendChild(dot);
+});
+
+const dots=document.querySelectorAll('.dot');
+
+function showSlide(index){
+
+    slides.forEach(slide=>{
+        slide.classList.remove('active');
+    });
+
+    dots.forEach(dot=>{
+        dot.classList.remove('active');
+    });
+
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+
+    current=index;
+}
+
+document.querySelector('.next').addEventListener('click',()=>{
+
+    current++;
+
+    if(current>=slides.length){
+        current=0;
+    }
+
+    showSlide(current);
+});
+
+document.querySelector('.prev').addEventListener('click',()=>{
+
+    current--;
+
+    if(current<0){
+        current=slides.length-1;
+    }
+
+    showSlide(current);
+});
+
+setInterval(()=>{
+
+    current++;
+
+    if(current>=slides.length){
+        current=0;
+    }
+
+    showSlide(current);
+
+},5000);
+
+</script>
 </body>
 </html>
