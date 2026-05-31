@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Aportes en Línea - Independientes | Slider tras menú</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Aportes en Línea - Independientes | Móvil + PC</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,13 +23,11 @@ body {
     width: 100%;
 }
 
-/* === HEADER RESPONSIVE === */
+/* === HEADER === */
 .top-header {
     width: 100%;
     background: #ffffff;
     border-bottom: 1px solid #e5e5e5;
-    position: relative;
-    z-index: 20;
 }
 
 .top-container {
@@ -38,20 +36,20 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    gap: 20px;
+    padding: 15px 20px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .logo-circle {
-    width: 48px;
-    height: 48px;
+    width: 42px;
+    height: 42px;
     background: linear-gradient(145deg, #ffb300, #2e7d32);
     border-radius: 50%;
     flex-shrink: 0;
@@ -59,28 +57,28 @@ body {
 
 .logo h2 {
     color: #198754;
-    font-size: 28px;
+    font-size: 20px;
     line-height: 1.2;
     font-weight: 700;
 }
 
 .main-menu {
     display: flex;
-    gap: 18px;
+    gap: 12px;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .main-menu a {
     text-decoration: none;
     color: #444;
     font-weight: 500;
-    font-size: 15px;
-    transition: 0.2s;
+    font-size: 13px;
 }
 
 .active-tab {
-    padding: 8px 22px;
+    padding: 6px 16px;
     border: 1px solid #9be3bf;
     border-radius: 40px;
     background: #edfdf3;
@@ -91,15 +89,16 @@ body {
 .right-menu {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .right-menu a {
     text-decoration: none;
     color: #444;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .login-btn {
@@ -107,24 +106,18 @@ body {
     color: #fff;
     border: none;
     border-radius: 40px;
-    padding: 10px 28px;
-    font-size: 16px;
+    padding: 8px 20px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.2s;
 }
 
-.login-btn:hover {
-    background: #006d4e;
-}
-
-/* === NAVBAR (Inicio, Quiénes somos, Productos, Contáctenos) === */
+/* === NAVBAR === */
 .navbar {
     background: #fff;
     border-bottom: 1px solid #ececec;
     overflow-x: auto;
     white-space: nowrap;
-    scrollbar-width: thin;
 }
 
 .nav-container {
@@ -132,39 +125,37 @@ body {
     margin: auto;
     display: flex;
     align-items: center;
-    gap: 32px;
-    padding: 16px 30px;
+    gap: 24px;
+    padding: 12px 20px;
 }
 
 .nav-container a {
     text-decoration: none;
     color: #5d5d5d;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
-    transition: 0.2s;
 }
 
 .nav-container .active {
     color: #008f68;
     border-bottom: 3px solid #008f68;
-    padding-bottom: 14px;
+    padding-bottom: 10px;
 }
 
-/* === SLIDER (justo después del navbar) === */
+/* === SLIDER === */
 .slider-section {
     width: 100%;
     max-width: 1400px;
-    margin: 20px auto 20px;
-    padding: 0 20px;
+    margin: 15px auto 10px;
+    padding: 0 15px;
 }
 
 .slider {
     position: relative;
     width: 100%;
-    border-radius: 24px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-    background: #fefefe;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .slide {
@@ -174,10 +165,10 @@ body {
 
 .slide.active {
     display: block;
-    animation: fadeEffect 0.5s ease;
+    animation: fade 0.4s ease;
 }
 
-@keyframes fadeEffect {
+@keyframes fade {
     from { opacity: 0.4; }
     to { opacity: 1; }
 }
@@ -186,376 +177,322 @@ body {
     width: 100%;
     display: block;
     object-fit: cover;
-    aspect-ratio: 3 / 1;
+    aspect-ratio: 16 / 9;
 }
 
 .prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     border: none;
     border-radius: 50%;
     background: rgba(0,0,0,0.5);
     color: white;
     cursor: pointer;
-    z-index: 10;
-    font-size: 24px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.2s;
-    backdrop-filter: blur(4px);
+    z-index: 10;
 }
 
-.prev:hover, .next:hover {
-    background: rgba(0,0,0,0.8);
-}
-
-.prev {
-    left: 15px;
-}
-
-.next {
-    right: 15px;
-}
+.prev { left: 10px; }
+.next { right: 10px; }
 
 .dots {
     position: absolute;
-    bottom: 15px;
+    bottom: 12px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 12px;
+    gap: 8px;
     z-index: 10;
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: rgba(255,255,255,0.6);
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .dot.active {
     background: #008f68;
-    width: 28px;
-    border-radius: 20px;
+    width: 22px;
+    border-radius: 10px;
 }
 
-/* === HERO SECTION (mantenemos coherencia visual) === */
+/* === HERO / SECCIÓN PRINCIPAL (como se ve en la imagen) === */
 .hero {
-    position: relative;
-    min-height: 480px;
     background: linear-gradient(135deg, #f0f9f4 0%, #e2f0e8 100%);
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+    padding: 40px 20px;
     width: 100%;
-    margin-top: 10px;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 550px;
-    margin-left: 8%;
-    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
 }
 
 .hero-content small {
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 2px;
     font-weight: 600;
     color: #2c7a4b;
     display: inline-block;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .hero-content h1 {
-    font-size: 48px;
+    font-size: 32px;
     font-weight: 800;
     line-height: 1.2;
     color: #1e3a2f;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .hero-content p {
-    font-size: 18px;
+    font-size: 16px;
     color: #4a5b52;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .hero-content button {
     background: #008f68;
     border: none;
     border-radius: 50px;
-    padding: 14px 35px;
-    font-size: 18px;
+    padding: 12px 28px;
+    font-size: 16px;
     font-weight: 600;
     color: white;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+    margin-bottom: 35px;
 }
 
-.hero-content button:hover {
-    background: #006d4e;
-    transform: scale(1.02);
+/* Tarjetas extras que salen en la imagen */
+.info-cards {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 20px 0;
 }
 
-.hero-img {
-    position: absolute;
-    right: 5%;
-    bottom: 0;
-    width: 38%;
-    max-width: 400px;
-    height: auto;
-    z-index: 2;
-    pointer-events: none;
+.info-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px 20px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    text-align: center;
 }
 
-.icon-center {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 80px;
-    color: #f6b51c;
-    opacity: 0.3;
-    z-index: 1;
+.info-card h3 {
+    font-size: 22px;
+    color: #1e3a2f;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
-/* === CARDS RESPONSIVE === */
+.info-card p {
+    color: #5e6e66;
+    font-size: 15px;
+}
+
+.calcular-btn {
+    background: #008f68;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    max-width: 220px;
+}
+
+/* === CARDS GENÉRICAS (adicionales) === */
 .cards {
     max-width: 1400px;
-    margin: 50px auto 70px;
-    position: relative;
-    z-index: 5;
+    margin: 40px auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    padding: 0 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
 }
 
 .card {
     background: #fff;
-    border-radius: 28px;
-    padding: 32px 28px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-    transition: all 0.3s;
-    border: 1px solid #eef2f0;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 25px 40px rgba(0,0,0,0.1);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
 .card h3 {
-    font-size: 26px;
+    font-size: 22px;
     color: #1f2e2a;
-    margin-bottom: 12px;
-    font-weight: 700;
+    margin-bottom: 10px;
 }
 
-.card p {
-    color: #5e6e66;
-    line-height: 1.4;
-}
-
-/* === CHAT FLOTANTE === */
+/* === CHAT === */
 .chat {
     position: fixed;
-    right: 20px;
-    bottom: 25px;
-    width: 70px;
-    height: 70px;
+    right: 18px;
+    bottom: 20px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background: #d9f2e6;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 36px;
+    font-size: 28px;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     z-index: 99;
-    transition: 0.2s;
 }
 
-.chat:hover {
-    transform: scale(1.05);
-    background: #c0e6d6;
-}
-
-/* ========== MEDIA QUERIES RESPONSIVE ========== */
-@media (max-width: 1100px) {
-    .hero-content h1 {
-        font-size: 40px;
-    }
-    .hero-img {
-        width: 32%;
-    }
-}
-
-@media (max-width: 992px) {
+/* ===== RESPONSIVE PARA MÓVIL (como se ve en la imagen) ===== */
+@media (max-width: 768px) {
     .top-container {
         flex-direction: column;
-        align-items: stretch;
         text-align: center;
+        padding: 12px 15px;
     }
+    
     .logo {
         justify-content: center;
     }
-    .main-menu {
-        justify-content: center;
-    }
-    .right-menu {
-        justify-content: center;
-    }
-    .nav-container {
-        gap: 20px;
-        justify-content: center;
-    }
-    .hero {
-        min-height: auto;
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-content {
-        margin: 0 auto;
-        text-align: center;
-        padding: 60px 20px 30px;
-    }
-    .hero-img {
-        position: relative;
-        width: 60%;
-        max-width: 280px;
-        margin: 0 auto 30px;
-        right: auto;
-        bottom: auto;
-    }
-    .icon-center {
-        display: none;
-    }
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    .hero-content h1 {
-        font-size: 36px;
-    }
-    .slide img {
-        aspect-ratio: 16 / 9;
-    }
-    .slider-section {
-        padding: 0 15px;
-    }
-}
-
-@media (max-width: 768px) {
-    .top-container {
-        padding: 12px 18px;
-    }
+    
     .logo h2 {
-        font-size: 22px;
+        font-size: 18px;
     }
+    
     .logo-circle {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
     }
+    
+    .main-menu {
+        gap: 8px;
+    }
+    
     .main-menu a {
-        font-size: 13px;
+        font-size: 11px;
     }
+    
     .active-tab {
-        padding: 5px 14px;
+        padding: 4px 12px;
     }
+    
+    .right-menu {
+        gap: 12px;
+    }
+    
+    .right-menu a {
+        font-size: 10px;
+    }
+    
     .login-btn {
-        padding: 8px 20px;
-        font-size: 14px;
+        padding: 6px 16px;
+        font-size: 11px;
     }
+    
     .nav-container {
-        padding: 12px 18px;
         gap: 16px;
+        padding: 10px 15px;
     }
+    
     .nav-container a {
+        font-size: 12px;
+    }
+    
+    .hero {
+        padding: 30px 18px;
+    }
+    
+    .hero-content h1 {
+        font-size: 26px;
+    }
+    
+    .hero-content p {
         font-size: 14px;
     }
-    .hero-content h1 {
-        font-size: 30px;
-    }
-    .hero-content p {
-        font-size: 16px;
-    }
+    
     .hero-content button {
-        padding: 12px 28px;
-        font-size: 16px;
+        padding: 10px 22px;
+        font-size: 14px;
+        width: 100%;
+        max-width: 280px;
     }
+    
+    .info-cards {
+        flex-direction: column;
+        padding: 10px 18px 0;
+    }
+    
+    .info-card {
+        min-width: auto;
+        padding: 20px;
+    }
+    
+    .info-card h3 {
+        font-size: 20px;
+    }
+    
+    .calcular-btn {
+        width: 100%;
+        max-width: none;
+    }
+    
     .cards {
         grid-template-columns: 1fr;
         padding: 0 18px;
-        margin-top: 30px;
+        margin: 30px auto;
     }
-    .card {
-        padding: 24px;
+    
+    .slide img {
+        aspect-ratio: 16 / 9;
     }
+    
     .prev, .next {
-        width: 36px;
-        height: 36px;
-        font-size: 20px;
-    }
-    .dots {
-        bottom: 10px;
-        gap: 8px;
-    }
-    .dot {
-        width: 8px;
-        height: 8px;
-    }
-    .dot.active {
-        width: 20px;
-    }
-    .chat {
-        width: 55px;
-        height: 55px;
-        font-size: 28px;
-        right: 15px;
-        bottom: 20px;
-    }
-    .slider-section {
-        margin-top: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
     }
 }
 
 @media (max-width: 480px) {
     .hero-content h1 {
-        font-size: 26px;
+        font-size: 22px;
     }
+    
+    .hero-content small {
+        font-size: 11px;
+    }
+    
     .hero-content button {
-        width: 80%;
+        font-size: 13px;
     }
-    .right-menu {
-        gap: 15px;
-    }
-    .right-menu a {
-        font-size: 12px;
-    }
-    .login-btn {
-        padding: 6px 16px;
-    }
-    .nav-container a {
-        font-size: 12px;
-    }
-    .slide img {
-        aspect-ratio: 4 / 3;
+    
+    .info-card h3 {
+        font-size: 18px;
     }
 }
 
-button, .login-btn, .chat, .prev, .next, .dot {
+/* === EXTRAS === */
+button, .login-btn, .chat, .prev, .next, .dot, .calcular-btn {
     cursor: pointer;
+    transition: 0.2s;
     -webkit-tap-highlight-color: transparent;
 }
 </style>
@@ -591,31 +528,31 @@ button, .login-btn, .chat, .prev, .next, .dot {
     </div>
 </nav>
 
-<!-- SLIDER DE IMÁGENES JUSTO DESPUÉS DE "Inicio, Quiénes somos, Productos, Contáctenos" -->
+<!-- SLIDER DE IMÁGENES -->
 <div class="slider-section">
     <div class="slider">
         <div class="slide active">
             <picture>
                 <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108">
-                <img src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014" alt="banner whatsapp">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014" alt="banner 1">
             </picture>
         </div>
         <div class="slide">
             <picture>
                 <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS--IND--CELULAR-28-01-2026.png/c0514fca-cd83-9dd6-96a5-44eef5d3266e?t=1769633194849">
-                <img src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS-28-01-2026.png/b0db14ad-99f0-0ea8-fac8-1b5f4b673b06?t=1769633175911" alt="banner nuevo aportante">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS-28-01-2026.png/b0db14ad-99f0-0ea8-fac8-1b5f4b673b06?t=1769633175911" alt="banner 2">
             </picture>
         </div>
         <div class="slide">
             <picture>
                 <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734">
-                <img src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039" alt="banner trabajo">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039" alt="banner 3">
             </picture>
         </div>
         <div class="slide">
             <picture>
                 <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233">
-                <img src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670" alt="banner PTD">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670" alt="banner 4">
             </picture>
         </div>
         <button class="prev">&#10094;</button>
@@ -624,17 +561,31 @@ button, .login-btn, .chat, .prev, .next, .dot {
     </div>
 </div>
 
+<!-- SECCIÓN PRINCIPAL IGUAL A LA IMAGEN QUE COMPARTISTE -->
 <section class="hero">
     <div class="hero-content">
         <small>INDEPENDIENTES</small>
         <h1>POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES</h1>
-        <p>Hemos actualizado nuestra política, te invitamos a consultarla</p>
+        <p>Hemos actualizado nuestra política te invitamos a consultarla</p>
         <button>Ingresa aquí</button>
     </div>
-    <div class="icon-center">📄</div>
-    <img class="hero-img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format" alt="persona">
 </section>
 
+<!-- EXTRAS QUE APARECEN EN TU FOTO: Hazlo fácil / Calcula tu aportes -->
+<div class="info-cards">
+    <div class="info-card">
+        <h3>✨ Hazlo fácil</h3>
+        <p>Paga tus aportes de forma ágil y sin autenticarte</p>
+        <button class="calcular-btn">Calcula tus aportes</button>
+    </div>
+    <div class="info-card">
+        <h3>📊 Liquida y paga</h3>
+        <p>Liquida y paga tu aporte al instante, desde cualquier lugar</p>
+        <button class="calcular-btn">Liquidar ahora</button>
+    </div>
+</div>
+
+<!-- CARDS ADICIONALES (opcionales pero mantienen estilo) -->
 <div class="cards">
     <div class="card">
         <h3>✔️ Fácil y rápido</h3>
@@ -653,39 +604,34 @@ button, .login-btn, .chat, .prev, .next, .dot {
 <div class="chat">🤖</div>
 
 <script>
-// CARRUSEL RESPONSIVE con dots y transición automática
+// SLIDER AUTOMÁTICO
 const slides = document.querySelectorAll('.slider .slide');
 const dotsContainer = document.querySelector('.slider .dots');
 let currentIndex = 0;
 let autoInterval;
 
-// Limpiar dots si existieran previamente
-if(dotsContainer) {
+if (dotsContainer) {
     dotsContainer.innerHTML = '';
-}
-
-// Generar dots dinámicamente
-slides.forEach((_, idx) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (idx === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-        stopAutoSlide();
-        showSlide(idx);
-        startAutoSlide();
+    slides.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            stopAutoSlide();
+            showSlide(idx);
+            startAutoSlide();
+        });
+        dotsContainer.appendChild(dot);
     });
-    dotsContainer.appendChild(dot);
-});
+}
 
 const dots = document.querySelectorAll('.slider .dot');
 
 function showSlide(index) {
     if (index < 0) index = 0;
     if (index >= slides.length) index = slides.length - 1;
-    
     slides.forEach(slide => slide.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
-    
     slides[index].classList.add('active');
     if (dots[index]) dots[index].classList.add('active');
     currentIndex = index;
@@ -705,72 +651,35 @@ function prevSlide() {
 
 function startAutoSlide() {
     if (autoInterval) clearInterval(autoInterval);
-    autoInterval = setInterval(() => {
-        nextSlide();
-    }, 5000);
+    autoInterval = setInterval(nextSlide, 5000);
 }
 
 function stopAutoSlide() {
-    if (autoInterval) {
-        clearInterval(autoInterval);
-        autoInterval = null;
-    }
+    if (autoInterval) clearInterval(autoInterval);
 }
 
-// Eventos para botones next/prev
-const nextBtn = document.querySelector('.slider .next');
-const prevBtn = document.querySelector('.slider .prev');
+document.querySelector('.slider .next')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    stopAutoSlide();
+    nextSlide();
+    startAutoSlide();
+});
+document.querySelector('.slider .prev')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    stopAutoSlide();
+    prevSlide();
+    startAutoSlide();
+});
 
-if (nextBtn) {
-    nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        stopAutoSlide();
-        nextSlide();
-        startAutoSlide();
-    });
-}
-
-if (prevBtn) {
-    prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        stopAutoSlide();
-        prevSlide();
-        startAutoSlide();
-    });
-}
-
-// Iniciar slider automático al cargar
 startAutoSlide();
 
-// Pausar al pasar mouse sobre slider
-const sliderContainer = document.querySelector('.slider');
-if (sliderContainer) {
-    sliderContainer.addEventListener('mouseenter', () => {
-        stopAutoSlide();
-    });
-    sliderContainer.addEventListener('mouseleave', () => {
-        startAutoSlide();
-    });
-    // Para móviles: pausar con touchstart
-    sliderContainer.addEventListener('touchstart', () => {
-        stopAutoSlide();
-    });
-    sliderContainer.addEventListener('touchend', () => {
-        startAutoSlide();
-    });
+const sliderBox = document.querySelector('.slider');
+if (sliderBox) {
+    sliderBox.addEventListener('mouseenter', stopAutoSlide);
+    sliderBox.addEventListener('mouseleave', startAutoSlide);
+    sliderBox.addEventListener('touchstart', stopAutoSlide);
+    sliderBox.addEventListener('touchend', startAutoSlide);
 }
-
-// Ajuste para imagen del héroe en móvil
-function adjustHeroImage() {
-    const heroImg = document.querySelector('.hero-img');
-    if (window.innerWidth <= 768) {
-        if (heroImg) heroImg.style.maxWidth = '220px';
-    } else {
-        if (heroImg) heroImg.style.maxWidth = '';
-    }
-}
-window.addEventListener('resize', adjustHeroImage);
-adjustHeroImage();
 </script>
 </body>
 </html>
