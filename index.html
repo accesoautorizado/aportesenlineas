@@ -171,7 +171,7 @@ body {
     border-radius: 2px;
 }
 
-/* ========== MENÚ MÓVIL DESPLEGABLE - ESTILO EXACTO COMO LA IMAGEN ========== */
+/* ========== MENÚ MÓVIL - EXACTAMENTE COMO EN LA IMAGEN ========== */
 .mobile-menu-overlay {
     position: fixed;
     top: 0;
@@ -239,12 +239,13 @@ body {
     font-weight: 600;
 }
 
-/* Grupo de opciones secundarias */
-.mobile-secondary-options {
-    padding: 10px 0;
+/* Opciones de portales (Empresas, Independientes, Administradora) */
+.mobile-portals {
+    background: #f8f9fa;
+    margin-top: 10px;
 }
 
-.mobile-secondary-options a {
+.mobile-portals a {
     display: block;
     text-decoration: none;
     color: var(--color-dark);
@@ -252,6 +253,23 @@ body {
     font-weight: 500;
     padding: 16px 20px;
     font-family: var(--font-rubik);
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Centro de ayuda y Medios de pago */
+.mobile-secondary {
+    padding: 10px 0;
+}
+
+.mobile-secondary a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-dark);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px 20px;
+    font-family: var(--font-rubik);
+    border-bottom: 1px solid #f0f0f0;
 }
 
 /* Botón ingresar móvil */
@@ -526,7 +544,7 @@ body {
     }
 }
 
-/* ========== SECCIÓN HAZLO FÁCIL ========== */
+/* ========== SECCIÓN HAZLO FÁCIL (COMPLETA) ========== */
 .containerSelfService {
     max-width: 1400px;
     margin: -40px auto 40px;
@@ -1261,7 +1279,7 @@ body {
         <img src="https://www.aportesenlinea.com/o/aportes-en-linea-theme/images/logoAEL70.png" alt="Aportes en Línea">
     </div>
     
-    <!-- Opciones principales -->
+    <!-- Opciones principales (Inicio, Quiénes somos, Productos, Contáctenos) -->
     <ul class="mobile-nav-list">
         <li><a href="#" class="active">Inicio</a></li>
         <li><a href="#">Quiénes somos</a></li>
@@ -1269,18 +1287,15 @@ body {
         <li><a href="#">Contáctenos</a></li>
     </ul>
     
-    <!-- Separador visual -->
-    <div style="height: 1px; background: #f0f0f0; margin: 5px 0;"></div>
-    
-    <!-- Opciones secundarias -->
-    <ul class="mobile-nav-list">
-        <li><a href="#">Empresas</a></li>
-        <li><a href="#">Independientes</a></li>
-        <li><a href="#">Administradora</a></li>
-    </ul>
+    <!-- Portales (Empresas, Independientes, Administradora) -->
+    <div class="mobile-portals">
+        <a href="#">Empresas</a>
+        <a href="#">Independientes</a>
+        <a href="#">Administradora</a>
+    </div>
     
     <!-- Centro de ayuda y Medios de pago -->
-    <div class="mobile-secondary-options">
+    <div class="mobile-secondary">
         <a href="#">Centro de ayuda</a>
         <a href="#">Medios de pago</a>
     </div>
@@ -1351,7 +1366,7 @@ body {
     </ol>
 </div>
 
-<!-- ========== HAZLO FÁCIL ========== -->
+<!-- ========== HAZLO FÁCIL (COMPLETO CON TODAS LAS OPCIONES) ========== -->
 <div class="containerSelfService">
     <div class="containerContent">
         <div class="content">Hazlo fácil</div>
@@ -1359,8 +1374,9 @@ body {
     </div>
     <div class="cardsContent">
         <div class="cardSubContent">
+            <!-- Calcula tu aportes -->
             <div class="cardUni">
-                <a href="#">
+                <a href="#" target="_blank">
                     <img src="https://www.aportesenlinea.com/documents/53176/0/calculator.png/18bc6ca6-628b-e4ec-a0a2-41c1cf211a9a?t=1741878034789" alt="">
                     <span class="textoBotonMenuBanner">Calcula tu aportes</span>
                 </a>
@@ -1369,14 +1385,81 @@ body {
                     <span class="tooltiptext">Calcula tu aportes</span>
                 </div>
             </div>
+            <!-- Liquida y paga tu planilla -->
             <div class="cardUni">
-                <a href="#">
+                <a href="#" target="_blank">
                     <img src="https://www.aportesenlinea.com/documents/53176/0/bitcoin-convert.png/fcfa74df-f381-4a99-e52d-1d538e7b41e2?t=1739907918037" alt="">
-                    <span class="textoBotonMenuBanner">Liquida y paga tu aporte</span>
+                    <span class="textoBotonMenuBanner">Liquida y paga tu planilla</span>
                 </a>
                 <div class="infoIma tooltipael">
                     <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
-                    <span class="tooltiptext">Liquida y paga tu aporte</span>
+                    <span class="tooltiptext">Liquida tu planilla</span>
+                </div>
+            </div>
+            <!-- Certificados de aportes -->
+            <div class="cardUni">
+                <a href="#" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/receipt-search.png/7b61f4a4-ef47-c148-b465-7376c318c1ca?t=1741878213381" alt="">
+                    <span class="textoBotonMenuBanner">Certificados de aportes</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Certificados de aportes</span>
+                </div>
+            </div>
+            <!-- Soporte de pago -->
+            <div class="cardUni">
+                <a href="#" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/document-sketch.png/04db0df0-1948-e0bc-aa8d-ce79dacfeeec?t=1739908111344" alt="">
+                    <span class="textoBotonMenuBanner">Soporte de pago</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Soporte de pago</span>
+                </div>
+            </div>
+            <!-- Verifica una planilla -->
+            <div class="cardUni">
+                <a href="#" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/document-sketch.png/04db0df0-1948-e0bc-aa8d-ce79dacfeeec?t=1739908111344" alt="">
+                    <span class="textoBotonMenuBanner">Verifica una planilla</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Verifica una planilla</span>
+                </div>
+            </div>
+            <!-- Contribución solidaria -->
+            <div class="cardUni">
+                <a href="#" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/folder-favorite.png/9a3e9c7e-043f-b40c-1544-02a4045de458?t=1741879314716" alt="">
+                    <span class="textoBotonMenuBanner">Contribución solidaria</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Contribución solidaria</span>
+                </div>
+            </div>
+            <!-- Declaracion de renta -->
+            <div class="cardUni">
+                <a href="#" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/archive-add.png/3bd1b4e7-ab6d-600a-d54b-bee95a97e82c?t=1739908031383" alt="">
+                    <span class="textoBotonMenuBanner">Declaracion de renta</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Declaracion de renta</span>
+                </div>
+            </div>
+            <!-- Pago electrónico - PSE -->
+            <div class="cardUni">
+                <a href="#" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/bitcoin-convert.png/fcfa74df-f381-4a99-e52d-1d538e7b41e2?t=1739907918037" alt="">
+                    <span class="textoBotonMenuBanner">Pago electrónico - PSE</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Pago electrónico - PSE</span>
                 </div>
             </div>
         </div>
@@ -1604,7 +1687,7 @@ body {
     </ul>
 </div>
 
-<!-- MODAL -->
+<!-- MODAL LÍNEAS TELEFÓNICAS -->
 <div id="phoneModal" class="popup-menu-flotante">
     <div style="padding: 20px;">
         <button onclick="closePhoneModal()" style="float: right; background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
