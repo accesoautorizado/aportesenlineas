@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-<title>Aportes en Línea - Independientes | Menú Hamburguesa + Slider</title>
+<title>Aportes en Línea - Independientes | Slider corregido móvil</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,7 +65,7 @@ body {
     font-weight: 700;
 }
 
-/* === BOTÓN HAMBURGUESA (TRES RAYITAS) === */
+/* === BOTÓN HAMBURGUESA === */
 .menu-toggle {
     display: none;
     background: none;
@@ -82,7 +82,6 @@ body {
     background: #2c7a4b;
     margin: 5px 0;
     border-radius: 3px;
-    transition: 0.3s;
 }
 
 /* Menú escritorio */
@@ -98,12 +97,7 @@ body {
     color: #444;
     font-weight: 500;
     font-size: 14px;
-    transition: 0.2s;
     white-space: nowrap;
-}
-
-.main-menu a:hover {
-    color: #008f68;
 }
 
 .active-tab {
@@ -138,11 +132,6 @@ body {
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.2s;
-}
-
-.login-btn:hover {
-    background: #006d4e;
 }
 
 /* Navbar escritorio */
@@ -173,7 +162,7 @@ body {
     padding-bottom: 10px;
 }
 
-/* === MENÚ MÓVIL - PANTALLA COMPLETA DESDE DERECHA === */
+/* === MENÚ MÓVIL === */
 .mobile-menu {
     position: fixed;
     top: 0;
@@ -201,7 +190,6 @@ body {
     border: none;
     cursor: pointer;
     color: #2c7a4b;
-    font-weight: 300;
 }
 
 .mobile-menu a {
@@ -212,12 +200,6 @@ body {
     padding: 16px 0;
     border-bottom: 1px solid #e0ece5;
     font-size: 18px;
-    transition: 0.2s;
-}
-
-.mobile-menu a:active {
-    background: #e8f3ed;
-    padding-left: 10px;
 }
 
 .mobile-menu a.active-tab-mobile {
@@ -231,7 +213,6 @@ body {
     text-align: center;
     border-radius: 50px;
     margin-top: 30px;
-    border: none;
     padding: 14px;
     font-weight: 600;
     font-size: 18px;
@@ -253,7 +234,7 @@ body {
     display: block;
 }
 
-/* === SLIDER NUEVO (con texto e imágenes) === */
+/* === SLIDER === */
 .slider-container {
     width: 100%;
     max-width: 1400px;
@@ -279,17 +260,18 @@ body {
     display: block;
 }
 
-/* Banner desktop (oculto en móvil) */
+/* Imágenes */
 .banner_img_desk {
     width: 100%;
     display: block;
 }
 
 .banner_img_mobile {
+    width: 100%;
     display: none;
 }
 
-/* Contenido del banner (texto superpuesto) */
+/* Contenido del banner (texto superpuesto SIEMPRE) */
 .ael-home-banner__content {
     position: absolute;
     top: 50%;
@@ -298,6 +280,7 @@ body {
     max-width: 500px;
     z-index: 5;
     color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .contexto {
@@ -318,7 +301,7 @@ body {
 .texto_banner {
     font-size: 16px;
     margin-bottom: 20px;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255,255,255,0.95);
 }
 
 .texto_banner p {
@@ -342,7 +325,7 @@ body {
     color: white;
 }
 
-/* Flechas del slider */
+/* Flechas */
 .slider-prev, .slider-next {
     position: absolute;
     top: 50%;
@@ -359,15 +342,10 @@ body {
     color: white;
     font-size: 28px;
     font-weight: bold;
-    transition: 0.2s;
 }
 
 .slider-prev { left: 20px; }
 .slider-next { right: 20px; }
-
-.slider-prev:hover, .slider-next:hover {
-    background: rgba(0,0,0,0.8);
-}
 
 /* Dots */
 .slider-dots {
@@ -384,9 +362,8 @@ body {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.6);
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .dot.active {
@@ -395,43 +372,67 @@ body {
     border-radius: 10px;
 }
 
-/* === RESPONSIVE SLIDER (móvil) === */
+/* === RESPONSIVE MÓVIL - texto sigue superpuesto === */
 @media (max-width: 768px) {
     .banner_img_desk {
         display: none;
     }
     .banner_img_mobile {
         display: block;
-        width: 100%;
     }
+    
+    /* El texto sigue superpuesto, solo ajustamos tamaño y posición */
     .ael-home-banner__content {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        max-width: 100%;
-        padding: 40px 20px;
-        background: linear-gradient(135deg, #1e3a2f, #2c7a4b);
-        text-align: center;
-        border-radius: 20px 20px 0 0;
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        right: 5%;
+        transform: translateY(-50%);
+        max-width: 90%;
+        padding: 20px;
+        text-align: left;
+        background: rgba(0,0,0,0.5);
+        border-radius: 16px;
+        backdrop-filter: blur(2px);
     }
+    
     .titulo_banner {
-        font-size: 24px;
+        font-size: 22px;
     }
+    
     .contexto {
         font-size: 12px;
     }
+    
     .texto_banner {
-        font-size: 14px;
+        font-size: 13px;
     }
+    
+    .btn_blanco_AEL {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+    
     .slider-prev, .slider-next {
-        width: 36px;
-        height: 36px;
-        font-size: 20px;
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
     }
 }
 
-/* === HERO (sección de política) === */
+@media (max-width: 480px) {
+    .titulo_banner {
+        font-size: 18px;
+    }
+    .ael-home-banner__content {
+        padding: 15px;
+    }
+    .texto_banner {
+        font-size: 12px;
+    }
+}
+
+/* === RESTO DE SECCIONES === */
 .hero {
     background: linear-gradient(135deg, #f0f9f4 0%, #e2f0e8 100%);
     padding: 50px 20px;
@@ -478,7 +479,6 @@ body {
     cursor: pointer;
 }
 
-/* === INFO CARDS === */
 .info-cards {
     max-width: 1400px;
     margin: 0 auto;
@@ -523,7 +523,6 @@ body {
     cursor: pointer;
 }
 
-/* === CARDS === */
 .cards {
     max-width: 1400px;
     margin: 20px auto 50px;
@@ -547,7 +546,6 @@ body {
     font-weight: 700;
 }
 
-/* === CHAT === */
 .chat {
     position: fixed;
     right: 20px;
@@ -565,7 +563,6 @@ body {
     z-index: 99;
 }
 
-/* === RESPONSIVE GENERAL === */
 @media (max-width: 992px) {
     .main-menu, .right-menu, .navbar {
         display: none;
@@ -583,15 +580,6 @@ body {
         display: none !important;
     }
 }
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 24px;
-    }
-    .titulo_banner {
-        font-size: 20px;
-    }
-}
 </style>
 </head>
 <body>
@@ -603,14 +591,12 @@ body {
             <h2>aportes<br>en línea</h2>
         </div>
         
-        <!-- BOTÓN HAMBURGUESA (TRES RAYITAS) -->
         <button class="menu-toggle" id="menuToggle">
             <span></span>
             <span></span>
             <span></span>
         </button>
         
-        <!-- Menú escritorio -->
         <nav class="main-menu">
             <a href="#">Empresas</a>
             <a href="#" class="active-tab">Independientes</a>
@@ -635,7 +621,7 @@ body {
     </div>
 </nav>
 
-<!-- MENÚ MÓVIL DESPLEGABLE (TODAS LAS OPCIONES) -->
+<!-- MENÚ MÓVIL -->
 <div class="mobile-menu" id="mobileMenu">
     <button class="close-menu" id="closeMenu">&times;</button>
     <a href="#">Empresas</a>
@@ -653,10 +639,9 @@ body {
 
 <div class="overlay" id="overlay"></div>
 
-<!-- SLIDER NUEVO -->
+<!-- SLIDER -->
 <div class="slider-container">
     <div class="carousel-inner" id="carouselInner">
-        <!-- Slide 1 -->
         <div class="carousel-item active">
             <div class="ael-home-banner__content">
                 <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
@@ -668,7 +653,6 @@ body {
             <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108" alt="">
         </div>
         
-        <!-- Slide 2 -->
         <div class="carousel-item">
             <div class="ael-home-banner__content">
                 <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
@@ -679,7 +663,6 @@ body {
             <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734" alt="">
         </div>
         
-        <!-- Slide 3 -->
         <div class="carousel-item">
             <div class="ael-home-banner__content">
                 <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
@@ -690,7 +673,6 @@ body {
             <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+7%402x+%281%29.png/6cf55102-7478-905e-2c1a-f9d9e24d4dcb?t=1768618236489" alt="">
         </div>
         
-        <!-- Slide 4 -->
         <div class="carousel-item">
             <div class="ael-home-banner__content">
                 <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
@@ -702,7 +684,6 @@ body {
             <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233" alt="">
         </div>
         
-        <!-- Slide 5 -->
         <div class="carousel-item">
             <div class="ael-home-banner__content">
                 <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
@@ -714,7 +695,6 @@ body {
             <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS--IND--CELULAR-28-01-2026.png/c0514fca-cd83-9dd6-96a5-44eef5d3266e?t=1769633194849" alt="">
         </div>
         
-        <!-- Slide 6 -->
         <div class="carousel-item">
             <div class="ael-home-banner__content">
                 <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
@@ -772,7 +752,7 @@ body {
 <div class="chat">🤖</div>
 
 <script>
-// ========== MENÚ HAMBURGUESA ==========
+// Menú hamburguesa
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const overlay = document.getElementById('overlay');
@@ -798,7 +778,7 @@ document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', closeMenuFunc);
 });
 
-// ========== SLIDER ==========
+// Slider
 const slides = document.querySelectorAll('.carousel-item');
 const prevBtn = document.querySelector('.slider-prev');
 const nextBtn = document.querySelector('.slider-next');
@@ -825,14 +805,11 @@ function createDots() {
 function goToSlide(index) {
     if (index < 0) index = 0;
     if (index >= slides.length) index = slides.length - 1;
-    
     slides.forEach(slide => slide.classList.remove('active'));
     slides[index].classList.add('active');
-    
     document.querySelectorAll('.dot').forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
     });
-    
     currentIndex = index;
 }
 
@@ -875,8 +852,6 @@ const sliderContainer = document.querySelector('.slider-container');
 if (sliderContainer) {
     sliderContainer.addEventListener('mouseenter', stopAutoSlide);
     sliderContainer.addEventListener('mouseleave', startAutoSlide);
-    sliderContainer.addEventListener('touchstart', stopAutoSlide);
-    sliderContainer.addEventListener('touchend', startAutoSlide);
 }
 </script>
 </body>
