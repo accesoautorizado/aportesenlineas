@@ -124,7 +124,7 @@ body {
     background: var(--color-primary-dark);
 }
 
-/* ========== NAVBAR SUBMENÚ ========== */
+/* ========== NAVBAR SUBMENÚ (desktop) ========== */
 .navbar-submenu {
     background: var(--color-white);
     border-bottom: 1px solid #ececec;
@@ -171,6 +171,7 @@ body {
     border-radius: 2px;
 }
 
+/* ========== MENÚ MÓVIL DESPLEGABLE - ESTILO EXACTO COMO LA IMAGEN ========== */
 .mobile-menu-overlay {
     position: fixed;
     top: 0;
@@ -181,46 +182,104 @@ body {
     z-index: 200;
     transition: right 0.3s ease;
     overflow-y: auto;
-    padding: 70px 20px 30px;
+    padding: 20px 0 30px;
 }
 
 .mobile-menu-overlay.open {
     right: 0;
 }
 
-.mobile-menu-overlay .close-menu {
+/* Logo dentro del menú móvil */
+.mobile-logo {
+    padding: 20px 20px 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* Botón cerrar */
+.close-menu {
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 20px;
-    font-size: 32px;
+    font-size: 28px;
     background: none;
     border: none;
     cursor: pointer;
     color: var(--color-primary);
+    font-weight: 300;
 }
 
-.mobile-menu-overlay a {
+/* Lista de navegación móvil */
+.mobile-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav-list li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-nav-list li a {
     display: block;
     text-decoration: none;
     color: var(--color-dark);
-    padding: 14px 0;
-    border-bottom: 1px solid #e0ece5;
     font-size: 16px;
     font-weight: 500;
+    padding: 16px 20px;
+    font-family: var(--font-rubik);
 }
 
-.mobile-menu-overlay a.active {
+.mobile-nav-list li a.active {
     color: var(--color-primary);
-    font-weight: 700;
+    font-weight: 600;
 }
 
-.mobile-menu-overlay .login-btn-mobile {
+/* Grupo de opciones secundarias */
+.mobile-secondary-options {
+    padding: 10px 0;
+}
+
+.mobile-secondary-options a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-dark);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px 20px;
+    font-family: var(--font-rubik);
+}
+
+/* Botón ingresar móvil */
+.mobile-login-btn {
+    margin: 20px;
+    display: block;
     background: var(--color-primary);
-    color: white;
+    color: white !important;
     text-align: center;
+    text-decoration: none;
+    padding: 14px;
     border-radius: 40px;
-    margin-top: 20px;
-    padding: 12px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Texto de registro */
+.mobile-register-text {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: var(--color-gray);
+}
+
+.mobile-register-text a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .overlay-dark {
@@ -238,7 +297,7 @@ body {
     display: block;
 }
 
-/* ========== SLIDER BANNER CORREGIDO ========== */
+/* ========== SLIDER BANNER ========== */
 .ael-home-banner {
     position: relative;
     width: 100%;
@@ -467,7 +526,7 @@ body {
     }
 }
 
-/* ========== SECCIÓN HAZLO FÁCIL (COMPLETA) ========== */
+/* ========== SECCIÓN HAZLO FÁCIL ========== */
 .containerSelfService {
     max-width: 1400px;
     margin: -40px auto 40px;
@@ -1161,28 +1220,29 @@ body {
             <img src="https://www.aportesenlinea.com/o/aportes-en-linea-theme/images/logoAEL70.png" alt="Aportes en Línea">
         </div>
         
+        <!-- Botón hamburguesa -->
         <button class="hamburger-btn" id="hamburgerBtn">
             <span></span>
             <span></span>
             <span></span>
         </button>
         
+        <!-- Menú desktop -->
         <nav class="main-menu">
             <a href="#">Empresas</a>
             <a href="#" class="active-tab">Independientes</a>
             <a href="#">Administradora</a>
-            <a href="#">Datos en línea</a>
         </nav>
         
         <div class="right-menu">
-            <a href="#"><i class="bi bi-currency-dollar"></i> Medios de pago</a>
-            <a href="#"><i class="bi bi-info-circle"></i> Centro de ayuda</a>
-            <button class="login-btn">Inicia sesión</button>
+            <a href="#">Centro de ayuda</a>
+            <a href="#">Medios de pago</a>
+            <button class="login-btn">Ingresar</button>
         </div>
     </div>
 </header>
 
-<!-- ========== SUBMENÚ ========== -->
+<!-- ========== NAVBAR SUBMENÚ DESKTOP ========== -->
 <nav class="navbar-submenu">
     <div class="navbar-submenu-container">
         <a href="#" class="active">Inicio</a>
@@ -1192,24 +1252,51 @@ body {
     </div>
 </nav>
 
-<!-- ========== MENÚ MÓVIL ========== -->
+<!-- ========== MENÚ MÓVIL - EXACTAMENTE COMO EN LA IMAGEN ========== -->
 <div class="mobile-menu-overlay" id="mobileMenu">
     <button class="close-menu" id="closeMenuBtn">&times;</button>
-    <a href="#" class="active">Inicio</a>
-    <a href="#">Quiénes somos</a>
-    <a href="#">Productos</a>
-    <a href="#">Contáctenos</a>
-    <a href="#">Empresas</a>
-    <a href="#">Independientes</a>
-    <a href="#">Administradora</a>
-    <a href="#">Datos en línea</a>
-    <a href="#">Medios de pago</a>
-    <a href="#">Centro de ayuda</a>
-    <a href="#" class="login-btn-mobile">Inicia sesión</a>
+    
+    <!-- Logo en móvil -->
+    <div class="mobile-logo">
+        <img src="https://www.aportesenlinea.com/o/aportes-en-linea-theme/images/logoAEL70.png" alt="Aportes en Línea">
+    </div>
+    
+    <!-- Opciones principales -->
+    <ul class="mobile-nav-list">
+        <li><a href="#" class="active">Inicio</a></li>
+        <li><a href="#">Quiénes somos</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Contáctenos</a></li>
+    </ul>
+    
+    <!-- Separador visual -->
+    <div style="height: 1px; background: #f0f0f0; margin: 5px 0;"></div>
+    
+    <!-- Opciones secundarias -->
+    <ul class="mobile-nav-list">
+        <li><a href="#">Empresas</a></li>
+        <li><a href="#">Independientes</a></li>
+        <li><a href="#">Administradora</a></li>
+    </ul>
+    
+    <!-- Centro de ayuda y Medios de pago -->
+    <div class="mobile-secondary-options">
+        <a href="#">Centro de ayuda</a>
+        <a href="#">Medios de pago</a>
+    </div>
+    
+    <!-- Botón Ingresar -->
+    <a href="#" class="mobile-login-btn">Ingresar</a>
+    
+    <!-- Texto de registro -->
+    <div class="mobile-register-text">
+        ¿Aún no estás registrado? <a href="#">Regístrate</a>
+    </div>
 </div>
+
 <div class="overlay-dark" id="overlayDark"></div>
 
-<!-- ========== SLIDER BANNER CORREGIDO ========== -->
+<!-- ========== SLIDER BANNER ========== -->
 <div id="carouselExampleIndicators" class="ael-home-banner carousel slide">
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -1264,7 +1351,7 @@ body {
     </ol>
 </div>
 
-<!-- ========== HAZLO FÁCIL (COMPLETO - TODAS LAS OPCIONES) ========== -->
+<!-- ========== HAZLO FÁCIL ========== -->
 <div class="containerSelfService">
     <div class="containerContent">
         <div class="content">Hazlo fácil</div>
@@ -1272,9 +1359,8 @@ body {
     </div>
     <div class="cardsContent">
         <div class="cardSubContent">
-            <!-- Calcula tu aportes -->
             <div class="cardUni">
-                <a href="https://independientes.aportesenlinea.com/Portal/Paginas/CalculadoraAportes.aspx" target="_blank">
+                <a href="#">
                     <img src="https://www.aportesenlinea.com/documents/53176/0/calculator.png/18bc6ca6-628b-e4ec-a0a2-41c1cf211a9a?t=1741878034789" alt="">
                     <span class="textoBotonMenuBanner">Calcula tu aportes</span>
                 </a>
@@ -1283,81 +1369,14 @@ body {
                     <span class="tooltiptext">Calcula tu aportes</span>
                 </div>
             </div>
-            <!-- Liquida y paga tu planilla -->
             <div class="cardUni">
-                <a href="https://empresas.aportesenlinea.com/Autoservicio/ClavePago.aspx" target="_blank">
+                <a href="#">
                     <img src="https://www.aportesenlinea.com/documents/53176/0/bitcoin-convert.png/fcfa74df-f381-4a99-e52d-1d538e7b41e2?t=1739907918037" alt="">
-                    <span class="textoBotonMenuBanner">Liquida y paga tu planilla</span>
+                    <span class="textoBotonMenuBanner">Liquida y paga tu aporte</span>
                 </a>
                 <div class="infoIma tooltipael">
                     <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
-                    <span class="tooltiptext">Liquida tu planilla</span>
-                </div>
-            </div>
-            <!-- Certificados de aportes -->
-            <div class="cardUni">
-                <a href="https://empresas.aportesenlinea.com/Autoservicio/CertificadoAportes.aspx" target="_blank">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/receipt-search.png/7b61f4a4-ef47-c148-b465-7376c318c1ca?t=1741878213381" alt="">
-                    <span class="textoBotonMenuBanner">Certificados de aportes</span>
-                </a>
-                <div class="infoIma tooltipael">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
-                    <span class="tooltiptext">Certificados de aportes</span>
-                </div>
-            </div>
-            <!-- Soporte de pago -->
-            <div class="cardUni">
-                <a href="https://empresas.aportesenlinea.com/Autoservicio/SoportePago.aspx" target="_blank">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/document-sketch.png/04db0df0-1948-e0bc-aa8d-ce79dacfeeec?t=1739908111344" alt="">
-                    <span class="textoBotonMenuBanner">Soporte de pago</span>
-                </a>
-                <div class="infoIma tooltipael">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
-                    <span class="tooltiptext">Soporte de pago</span>
-                </div>
-            </div>
-            <!-- Verifica una planilla -->
-            <div class="cardUni">
-                <a href="https://empresas.aportesenlinea.com/Autoservicio/VerificarPlanilla.aspx" target="_blank">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/document-sketch.png/04db0df0-1948-e0bc-aa8d-ce79dacfeeec?t=1739908111344" alt="">
-                    <span class="textoBotonMenuBanner">Verifica una planilla</span>
-                </a>
-                <div class="infoIma tooltipael">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
-                    <span class="tooltiptext">Verifica una planilla</span>
-                </div>
-            </div>
-            <!-- Contribución solidaria -->
-            <div class="cardUni">
-                <a href="https://empresas.aportesenlinea.com/Autoservicio/ContribucionSolidaria.aspx" target="_blank">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/folder-favorite.png/9a3e9c7e-043f-b40c-1544-02a4045de458?t=1741879314716" alt="">
-                    <span class="textoBotonMenuBanner">Contribución solidaria</span>
-                </a>
-                <div class="infoIma tooltipael">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
-                    <span class="tooltiptext">Contribución solidaria</span>
-                </div>
-            </div>
-            <!-- Declaracion de renta -->
-            <div class="cardUni">
-                <a href="https://empresas.aportesenlinea.com/Autoservicio/DeclaracionRenta.aspx" target="_blank">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/archive-add.png/3bd1b4e7-ab6d-600a-d54b-bee95a97e82c?t=1739908031383" alt="">
-                    <span class="textoBotonMenuBanner">Declaracion de renta</span>
-                </a>
-                <div class="infoIma tooltipael">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
-                    <span class="tooltiptext">Declaracion de renta</span>
-                </div>
-            </div>
-            <!-- Pago electrónico - PSE -->
-            <div class="cardUni">
-                <a href="https://empresas.aportesenlinea.com/Autoservicio/PagoElectronico.aspx" target="_blank">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/bitcoin-convert.png/fcfa74df-f381-4a99-e52d-1d538e7b41e2?t=1739907918037" alt="">
-                    <span class="textoBotonMenuBanner">Pago electrónico - PSE</span>
-                </a>
-                <div class="infoIma tooltipael">
-                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
-                    <span class="tooltiptext">Pago electrónico - PSE</span>
+                    <span class="tooltiptext">Liquida y paga tu aporte</span>
                 </div>
             </div>
         </div>
@@ -1585,7 +1604,7 @@ body {
     </ul>
 </div>
 
-<!-- MODAL LÍNEAS TELEFÓNICAS -->
+<!-- MODAL -->
 <div id="phoneModal" class="popup-menu-flotante">
     <div style="padding: 20px;">
         <button onclick="closePhoneModal()" style="float: right; background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
@@ -1616,10 +1635,6 @@ function closeMenu() {
 hamburgerBtn.addEventListener('click', openMenu);
 closeMenuBtn.addEventListener('click', closeMenu);
 overlayDark.addEventListener('click', closeMenu);
-
-document.querySelectorAll('.mobile-menu-overlay a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-});
 
 // ========== SLIDER ==========
 const slides = document.querySelectorAll('.carousel-item');
