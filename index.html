@@ -467,7 +467,7 @@ body {
     }
 }
 
-/* ========== SECCIÓN HAZLO FÁCIL ========== */
+/* ========== SECCIÓN HAZLO FÁCIL (COMPLETA) ========== */
 .containerSelfService {
     max-width: 1400px;
     margin: -40px auto 40px;
@@ -505,7 +505,7 @@ body {
 
 .cardSubContent {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
 }
 
@@ -1126,6 +1126,10 @@ body {
         margin-top: 20px;
     }
     
+    .cardSubContent {
+        grid-template-columns: 1fr;
+    }
+    
     .tabs-row {
         flex-direction: column;
         align-items: center;
@@ -1208,7 +1212,6 @@ body {
 <!-- ========== SLIDER BANNER CORREGIDO ========== -->
 <div id="carouselExampleIndicators" class="ael-home-banner carousel slide">
     <div class="carousel-inner">
-        <!-- Slide 1 - WhatsApp -->
         <div class="carousel-item active">
             <div class="ael-home-banner__content">
                 <div class="contexto">INDEPENDIENTES</div>
@@ -1219,8 +1222,6 @@ body {
             <img class="banner_img_desk" src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014" alt="">
             <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108" alt="">
         </div>
-        
-        <!-- Slide 2 - Política de Datos -->
         <div class="carousel-item">
             <div class="ael-home-banner__content">
                 <div class="contexto">INDEPENDIENTES</div>
@@ -1231,19 +1232,15 @@ body {
             <img class="banner_img_desk" src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670" alt="">
             <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233" alt="">
         </div>
-        
-        <!-- Slide 3 - Aportes Independiente -->
         <div class="carousel-item">
             <div class="ael-home-banner__content">
                 <div class="contexto">INDEPENDIENTES</div>
                 <div class="titulo_banner">¿REALIZAS TUS APORTES COMO INDEPENDIENTE?</div>
-                <div class="texto_banner">Ingresa fácil y rápido desde la opción Independientes > Iniciar sesión > Portal de Independientes</div>
+                <div class="texto_banner">Ingresa fácil y rápido desde la opción Independientes > Iniciar sesión</div>
             </div>
             <img class="banner_img_desk" src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039" alt="">
             <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734" alt="">
         </div>
-        
-        <!-- Slide 4 - Internos de Medicina -->
         <div class="carousel-item">
             <div class="ael-home-banner__content">
                 <div class="contexto">INDEPENDIENTES</div>
@@ -1267,7 +1264,7 @@ body {
     </ol>
 </div>
 
-<!-- ========== HAZLO FÁCIL ========== -->
+<!-- ========== HAZLO FÁCIL (COMPLETO - TODAS LAS OPCIONES) ========== -->
 <div class="containerSelfService">
     <div class="containerContent">
         <div class="content">Hazlo fácil</div>
@@ -1275,8 +1272,9 @@ body {
     </div>
     <div class="cardsContent">
         <div class="cardSubContent">
+            <!-- Calcula tu aportes -->
             <div class="cardUni">
-                <a href="#">
+                <a href="https://independientes.aportesenlinea.com/Portal/Paginas/CalculadoraAportes.aspx" target="_blank">
                     <img src="https://www.aportesenlinea.com/documents/53176/0/calculator.png/18bc6ca6-628b-e4ec-a0a2-41c1cf211a9a?t=1741878034789" alt="">
                     <span class="textoBotonMenuBanner">Calcula tu aportes</span>
                 </a>
@@ -1285,14 +1283,81 @@ body {
                     <span class="tooltiptext">Calcula tu aportes</span>
                 </div>
             </div>
+            <!-- Liquida y paga tu planilla -->
             <div class="cardUni">
-                <a href="#">
+                <a href="https://empresas.aportesenlinea.com/Autoservicio/ClavePago.aspx" target="_blank">
                     <img src="https://www.aportesenlinea.com/documents/53176/0/bitcoin-convert.png/fcfa74df-f381-4a99-e52d-1d538e7b41e2?t=1739907918037" alt="">
-                    <span class="textoBotonMenuBanner">Liquida y paga tu aporte</span>
+                    <span class="textoBotonMenuBanner">Liquida y paga tu planilla</span>
                 </a>
                 <div class="infoIma tooltipael">
                     <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
-                    <span class="tooltiptext">Liquida y paga tu aporte</span>
+                    <span class="tooltiptext">Liquida tu planilla</span>
+                </div>
+            </div>
+            <!-- Certificados de aportes -->
+            <div class="cardUni">
+                <a href="https://empresas.aportesenlinea.com/Autoservicio/CertificadoAportes.aspx" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/receipt-search.png/7b61f4a4-ef47-c148-b465-7376c318c1ca?t=1741878213381" alt="">
+                    <span class="textoBotonMenuBanner">Certificados de aportes</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Certificados de aportes</span>
+                </div>
+            </div>
+            <!-- Soporte de pago -->
+            <div class="cardUni">
+                <a href="https://empresas.aportesenlinea.com/Autoservicio/SoportePago.aspx" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/document-sketch.png/04db0df0-1948-e0bc-aa8d-ce79dacfeeec?t=1739908111344" alt="">
+                    <span class="textoBotonMenuBanner">Soporte de pago</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Soporte de pago</span>
+                </div>
+            </div>
+            <!-- Verifica una planilla -->
+            <div class="cardUni">
+                <a href="https://empresas.aportesenlinea.com/Autoservicio/VerificarPlanilla.aspx" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/document-sketch.png/04db0df0-1948-e0bc-aa8d-ce79dacfeeec?t=1739908111344" alt="">
+                    <span class="textoBotonMenuBanner">Verifica una planilla</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Verifica una planilla</span>
+                </div>
+            </div>
+            <!-- Contribución solidaria -->
+            <div class="cardUni">
+                <a href="https://empresas.aportesenlinea.com/Autoservicio/ContribucionSolidaria.aspx" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/folder-favorite.png/9a3e9c7e-043f-b40c-1544-02a4045de458?t=1741879314716" alt="">
+                    <span class="textoBotonMenuBanner">Contribución solidaria</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Contribución solidaria</span>
+                </div>
+            </div>
+            <!-- Declaracion de renta -->
+            <div class="cardUni">
+                <a href="https://empresas.aportesenlinea.com/Autoservicio/DeclaracionRenta.aspx" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/archive-add.png/3bd1b4e7-ab6d-600a-d54b-bee95a97e82c?t=1739908031383" alt="">
+                    <span class="textoBotonMenuBanner">Declaracion de renta</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Declaracion de renta</span>
+                </div>
+            </div>
+            <!-- Pago electrónico - PSE -->
+            <div class="cardUni">
+                <a href="https://empresas.aportesenlinea.com/Autoservicio/PagoElectronico.aspx" target="_blank">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/bitcoin-convert.png/fcfa74df-f381-4a99-e52d-1d538e7b41e2?t=1739907918037" alt="">
+                    <span class="textoBotonMenuBanner">Pago electrónico - PSE</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Pago electrónico - PSE</span>
                 </div>
             </div>
         </div>
