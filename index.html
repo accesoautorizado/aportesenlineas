@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Aportes en Línea - Independientes | Slider corregido</title>
+<title>Aportes en Línea - Independientes | Slider sin div extra</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,17 +142,12 @@ body {
     padding-bottom: 10px;
 }
 
-/* === SLIDER (corregido, fuera de cualquier div raro) === */
-.slider-container {
-    width: 100%;
-    max-width: 1400px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
+/* === SLIDER (sin div contenedor extra) === */
 .slider {
     position: relative;
     width: 100%;
+    max-width: 1400px;
+    margin: 20px auto;
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -389,6 +384,20 @@ body {
     .cards {
         grid-template-columns: 1fr;
     }
+    .slider {
+        margin: 15px auto;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 24px;
+    }
+    .hero-content button {
+        padding: 10px 24px;
+        font-size: 14px;
+    }
 }
 </style>
 </head>
@@ -423,37 +432,35 @@ body {
     </div>
 </nav>
 
-<!-- SLIDER AHORA ESTÁ FUERA DE CUALQUIER DIV RARO, COMO SECCIÓN INDEPENDIENTE -->
-<div class="slider-container">
-    <div class="slider">
-        <div class="slide active">
-            <picture>
-                <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108">
-                <img src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014" alt="banner 1">
-            </picture>
-        </div>
-        <div class="slide">
-            <picture>
-                <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS--IND--CELULAR-28-01-2026.png/c0514fca-cd83-9dd6-96a5-44eef5d3266e?t=1769633194849">
-                <img src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS-28-01-2026.png/b0db14ad-99f0-0ea8-fac8-1b5f4b673b06?t=1769633175911" alt="banner 2">
-            </picture>
-        </div>
-        <div class="slide">
-            <picture>
-                <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734">
-                <img src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039" alt="banner 3">
-            </picture>
-        </div>
-        <div class="slide">
-            <picture>
-                <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233">
-                <img src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670" alt="banner 4">
-            </picture>
-        </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-        <div class="dots"></div>
+<!-- SLIDER: sin div contenedor extra, directamente el elemento .slider -->
+<div class="slider">
+    <div class="slide active">
+        <picture>
+            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108">
+            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014" alt="banner 1">
+        </picture>
     </div>
+    <div class="slide">
+        <picture>
+            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS--IND--CELULAR-28-01-2026.png/c0514fca-cd83-9dd6-96a5-44eef5d3266e?t=1769633194849">
+            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS-28-01-2026.png/b0db14ad-99f0-0ea8-fac8-1b5f4b673b06?t=1769633175911" alt="banner 2">
+        </picture>
+    </div>
+    <div class="slide">
+        <picture>
+            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734">
+            <img src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039" alt="banner 3">
+        </picture>
+    </div>
+    <div class="slide">
+        <picture>
+            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233">
+            <img src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670" alt="banner 4">
+        </picture>
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
 </div>
 
 <section class="hero">
