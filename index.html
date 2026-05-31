@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Aportes en Línea - Independientes | Slider sin div extra</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Aportes en Línea - Independientes | Menú Hamburguesa</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +28,9 @@ body {
     width: 100%;
     background: #ffffff;
     border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .top-container {
@@ -36,7 +39,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 12px 20px;
     gap: 15px;
     flex-wrap: wrap;
 }
@@ -62,23 +65,49 @@ body {
     font-weight: 700;
 }
 
+/* === MENÚ HAMBURGUESA === */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 101;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #2c7a4b;
+    margin: 5px 0;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* Menú principal (escritorio) */
 .main-menu {
     display: flex;
-    gap: 12px;
+    gap: 18px;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .main-menu a {
     text-decoration: none;
     color: #444;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 14px;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.main-menu a:hover {
+    color: #008f68;
 }
 
 .active-tab {
-    padding: 6px 16px;
+    padding: 6px 18px;
     border: 1px solid #9be3bf;
     border-radius: 40px;
     background: #edfdf3;
@@ -89,16 +118,15 @@ body {
 .right-menu {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .right-menu a {
     text-decoration: none;
     color: #444;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .login-btn {
@@ -106,18 +134,21 @@ body {
     color: #fff;
     border: none;
     border-radius: 40px;
-    padding: 8px 20px;
+    padding: 8px 22px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
+    transition: 0.2s;
 }
 
-/* === NAVBAR === */
+.login-btn:hover {
+    background: #006d4e;
+}
+
+/* Navbar (Inicio, Quiénes somos, Productos, Contáctenos) - se integra al menú hamburguesa */
 .navbar {
     background: #fff;
     border-bottom: 1px solid #ececec;
-    overflow-x: auto;
-    white-space: nowrap;
 }
 
 .nav-container {
@@ -125,7 +156,7 @@ body {
     margin: auto;
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 30px;
     padding: 12px 20px;
 }
 
@@ -142,7 +173,79 @@ body {
     padding-bottom: 10px;
 }
 
-/* === SLIDER (sin div contenedor extra) === */
+/* === MENÚ MÓVIL (DESPLEGABLE) === */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: 2px 0 20px rgba(0,0,0,0.15);
+    z-index: 200;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    padding: 80px 25px 30px;
+}
+
+.mobile-menu.open {
+    left: 0;
+}
+
+.mobile-menu .close-menu {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2c7a4b;
+}
+
+.mobile-menu a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+}
+
+.mobile-menu a.active-tab-mobile {
+    color: #008f68;
+    font-weight: 700;
+}
+
+.mobile-menu .login-btn-mobile {
+    background: #008f68;
+    color: white;
+    text-align: center;
+    border-radius: 40px;
+    margin-top: 20px;
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 150;
+    display: none;
+}
+
+.overlay.show {
+    display: block;
+}
+
+/* === SLIDER === */
 .slider {
     position: relative;
     width: 100%;
@@ -192,11 +295,6 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 10;
-    transition: 0.2s;
-}
-
-.prev:hover, .next:hover {
-    background: rgba(0,0,0,0.8);
 }
 
 .prev { left: 15px; }
@@ -218,7 +316,6 @@ body {
     border-radius: 50%;
     background: rgba(255,255,255,0.6);
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .dot.active {
@@ -319,7 +416,7 @@ body {
     cursor: pointer;
 }
 
-/* === CARDS ADICIONALES === */
+/* === CARDS === */
 .cards {
     max-width: 1400px;
     margin: 20px auto 50px;
@@ -361,12 +458,28 @@ body {
     z-index: 99;
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-    .top-container {
-        flex-direction: column;
-        text-align: center;
+/* === RESPONSIVE: OCULTAR MENÚS NORMALES Y MOSTRAR HAMBURGUESA === */
+@media (max-width: 992px) {
+    .main-menu, .right-menu, .navbar {
+        display: none;
     }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .top-container {
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 993px) {
+    .mobile-menu, .overlay {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
     .hero-content h1 {
         font-size: 28px;
     }
@@ -384,20 +497,6 @@ body {
     .cards {
         grid-template-columns: 1fr;
     }
-    .slider {
-        margin: 15px auto;
-        border-radius: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 24px;
-    }
-    .hero-content button {
-        padding: 10px 24px;
-        font-size: 14px;
-    }
 }
 </style>
 </head>
@@ -409,12 +508,22 @@ body {
             <div class="logo-circle"></div>
             <h2>aportes<br>en línea</h2>
         </div>
+        
+        <!-- Botón hamburguesa (tres rayitas) -->
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <!-- Menú escritorio -->
         <nav class="main-menu">
             <a href="#">Empresas</a>
             <a href="#" class="active-tab">Independientes</a>
             <a href="#">Administradora</a>
             <a href="#">Datos en línea</a>
         </nav>
+        
         <div class="right-menu">
             <a href="#">Medios de pago</a>
             <a href="#">Centro de ayuda</a>
@@ -423,6 +532,7 @@ body {
     </div>
 </header>
 
+<!-- Navbar escritorio (Inicio, Quiénes somos, Productos, Contáctenos) -->
 <nav class="navbar">
     <div class="nav-container">
         <a class="active" href="#">Inicio</a>
@@ -432,7 +542,27 @@ body {
     </div>
 </nav>
 
-<!-- SLIDER: sin div contenedor extra, directamente el elemento .slider -->
+<!-- MENÚ MÓVIL DESPLEGABLE (contiene TODAS las opciones) -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenu">&times;</button>
+    
+    <!-- Todas las opciones del menú -->
+    <a href="#">Empresas</a>
+    <a href="#" class="active-tab-mobile">Independientes</a>
+    <a href="#">Administradora</a>
+    <a href="#">Datos en línea</a>
+    <a href="#">Medios de pago</a>
+    <a href="#">Centro de ayuda</a>
+    <a href="#">Inicio</a>
+    <a href="#">Quiénes somos</a>
+    <a href="#">Productos</a>
+    <a href="#">Contáctenos</a>
+    <a href="#" class="login-btn-mobile">Inicia sesión</a>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- SLIDER -->
 <div class="slider">
     <div class="slide active">
         <picture>
@@ -503,7 +633,34 @@ body {
 <div class="chat">🤖</div>
 
 <script>
-// Slider funcionando correctamente
+// Menú hamburguesa
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const overlay = document.getElementById('overlay');
+const closeMenu = document.getElementById('closeMenu');
+
+function openMenu() {
+    mobileMenu.classList.add('open');
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMenuFunc() {
+    mobileMenu.classList.remove('open');
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+menuToggle.addEventListener('click', openMenu);
+closeMenu.addEventListener('click', closeMenuFunc);
+overlay.addEventListener('click', closeMenuFunc);
+
+// Cerrar al hacer click en un enlace del menú móvil
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', closeMenuFunc);
+});
+
+// Slider
 const slides = document.querySelectorAll('.slider .slide');
 const dotsContainer = document.querySelector('.slider .dots');
 let currentIndex = 0;
