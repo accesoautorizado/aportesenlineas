@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Aportes en Línea - Independientes | Responsive</title>
+<title>Aportes en Línea - Independientes | Slider tras menú</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,7 +118,7 @@ body {
     background: #006d4e;
 }
 
-/* === NAVBAR === */
+/* === NAVBAR (Inicio, Quiénes somos, Productos, Contáctenos) === */
 .navbar {
     background: #fff;
     border-bottom: 1px solid #ececec;
@@ -150,112 +150,17 @@ body {
     padding-bottom: 14px;
 }
 
-/* === HERO MODERNIZADO Y RESPONSIVE === */
-.hero {
-    position: relative;
-    min-height: 550px;
-    background: linear-gradient(135deg, #f0f9f4 0%, #e2f0e8 100%);
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+/* === SLIDER (justo después del navbar) === */
+.slider-section {
     width: 100%;
+    max-width: 1400px;
+    margin: 20px auto 20px;
+    padding: 0 20px;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 90% 20%, rgba(255,215,130,0.2) 0%, rgba(0,0,0,0) 70%);
-    z-index: 0;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 550px;
-    margin-left: 8%;
-    padding: 40px 20px;
-}
-
-.hero-content small {
-    font-size: 14px;
-    letter-spacing: 2px;
-    font-weight: 600;
-    color: #2c7a4b;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-.hero-content h1 {
-    font-size: 48px;
-    font-weight: 800;
-    line-height: 1.2;
-    color: #1e3a2f;
-    margin-bottom: 20px;
-}
-
-.hero-content p {
-    font-size: 18px;
-    color: #4a5b52;
-    margin-bottom: 30px;
-}
-
-.hero-content button {
-    background: #008f68;
-    border: none;
-    border-radius: 50px;
-    padding: 14px 35px;
-    font-size: 18px;
-    font-weight: 600;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-}
-
-.hero-content button:hover {
-    background: #006d4e;
-    transform: scale(1.02);
-}
-
-.hero-img {
-    position: absolute;
-    right: 5%;
-    bottom: 0;
-    width: 38%;
-    max-width: 400px;
-    height: auto;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.icon-center {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 80px;
-    color: #f6b51c;
-    opacity: 0.3;
-    z-index: 1;
-}
-
-/* flechas del hero (banner slider) las movemos al slider real */
-.arrow {
-    display: none;
-}
-
-/* slider dots del hero antiguo lo reemplazamos por slider real */
-.slider-dots {
-    display: none;
-}
-
-/* === SLIDER CARRUSEL BANNERS === */
 .slider {
     position: relative;
     width: 100%;
-    max-width: 1400px;
-    margin: 30px auto 20px;
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 12px 30px rgba(0,0,0,0.1);
@@ -339,6 +244,89 @@ body {
     background: #008f68;
     width: 28px;
     border-radius: 20px;
+}
+
+/* === HERO SECTION (mantenemos coherencia visual) === */
+.hero {
+    position: relative;
+    min-height: 480px;
+    background: linear-gradient(135deg, #f0f9f4 0%, #e2f0e8 100%);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 550px;
+    margin-left: 8%;
+    padding: 40px 20px;
+}
+
+.hero-content small {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #2c7a4b;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1e3a2f;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #4a5b52;
+    margin-bottom: 30px;
+}
+
+.hero-content button {
+    background: #008f68;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 35px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.hero-content button:hover {
+    background: #006d4e;
+    transform: scale(1.02);
+}
+
+.hero-img {
+    position: absolute;
+    right: 5%;
+    bottom: 0;
+    width: 38%;
+    max-width: 400px;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.icon-center {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 80px;
+    color: #f6b51c;
+    opacity: 0.3;
+    z-index: 1;
 }
 
 /* === CARDS RESPONSIVE === */
@@ -463,6 +451,9 @@ body {
     .slide img {
         aspect-ratio: 16 / 9;
     }
+    .slider-section {
+        padding: 0 15px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -534,6 +525,9 @@ body {
         right: 15px;
         bottom: 20px;
     }
+    .slider-section {
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -560,13 +554,10 @@ body {
     }
 }
 
-/* === EXTRAS PARA MEJORAR TACTIL Y SCROLL === */
 button, .login-btn, .chat, .prev, .next, .dot {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 }
-
-/* seccion slider que originalmente estaba duplicada, la unificamos */
 </style>
 </head>
 <body>
@@ -600,6 +591,39 @@ button, .login-btn, .chat, .prev, .next, .dot {
     </div>
 </nav>
 
+<!-- SLIDER DE IMÁGENES JUSTO DESPUÉS DE "Inicio, Quiénes somos, Productos, Contáctenos" -->
+<div class="slider-section">
+    <div class="slider">
+        <div class="slide active">
+            <picture>
+                <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014" alt="banner whatsapp">
+            </picture>
+        </div>
+        <div class="slide">
+            <picture>
+                <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS--IND--CELULAR-28-01-2026.png/c0514fca-cd83-9dd6-96a5-44eef5d3266e?t=1769633194849">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS-28-01-2026.png/b0db14ad-99f0-0ea8-fac8-1b5f4b673b06?t=1769633175911" alt="banner nuevo aportante">
+            </picture>
+        </div>
+        <div class="slide">
+            <picture>
+                <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039" alt="banner trabajo">
+            </picture>
+        </div>
+        <div class="slide">
+            <picture>
+                <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670" alt="banner PTD">
+            </picture>
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+        <div class="dots"></div>
+    </div>
+</div>
+
 <section class="hero">
     <div class="hero-content">
         <small>INDEPENDIENTES</small>
@@ -611,38 +635,6 @@ button, .login-btn, .chat, .prev, .next, .dot {
     <img class="hero-img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format" alt="persona">
 </section>
 
-<!-- CARRUSEL SLIDER PRINCIPAL (banners) -->
-<section class="slider">
-    <div class="slide active">
-        <picture>
-            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108">
-            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014" alt="banner 1">
-        </picture>
-    </div>
-    <div class="slide">
-        <picture>
-            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS--IND--CELULAR-28-01-2026.png/c0514fca-cd83-9dd6-96a5-44eef5d3266e?t=1769633194849">
-            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS-28-01-2026.png/b0db14ad-99f0-0ea8-fac8-1b5f4b673b06?t=1769633175911" alt="banner 2">
-        </picture>
-    </div>
-    <div class="slide">
-        <picture>
-            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734">
-            <img src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039" alt="banner 3">
-        </picture>
-    </div>
-    <div class="slide">
-        <picture>
-            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233">
-            <img src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670" alt="banner 4">
-        </picture>
-    </div>
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-    <div class="dots"></div>
-</section>
-
-<!-- SECCIÓN CARDS MEJORADA -->
 <div class="cards">
     <div class="card">
         <h3>✔️ Fácil y rápido</h3>
@@ -768,26 +760,17 @@ if (sliderContainer) {
     });
 }
 
-// Opcional: Ajuste de imagenes hero para que en móvil se vea bien
+// Ajuste para imagen del héroe en móvil
 function adjustHeroImage() {
     const heroImg = document.querySelector('.hero-img');
     if (window.innerWidth <= 768) {
-        if (heroImg && !heroImg.hasAttribute('data-original')) {
-            heroImg.setAttribute('data-original', heroImg.src);
-            // mantener misma imagen, solo aseguramos que no se deforme
-            heroImg.style.maxWidth = '220px';
-        }
+        if (heroImg) heroImg.style.maxWidth = '220px';
     } else {
-        if (heroImg) {
-            heroImg.style.maxWidth = '';
-        }
+        if (heroImg) heroImg.style.maxWidth = '';
     }
 }
 window.addEventListener('resize', adjustHeroImage);
 adjustHeroImage();
-
-// Arreglamos posible error: prev/next del hero ocultos no interfieren, todo ok
-console.log('Página completamente responsiva activada');
 </script>
 </body>
 </html>
