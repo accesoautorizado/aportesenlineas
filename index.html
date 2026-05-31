@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-<title>Aportes en Línea - Independientes | Menú Pantalla Completa Derecha</title>
+<title>Aportes en Línea - Independientes | Slider con texto e imágenes</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -252,86 +252,183 @@ body {
     display: block;
 }
 
-/* === SLIDER === */
-.slider {
-    position: relative;
+/* === SLIDER NUEVO (con texto e imágenes) === */
+.slider-container {
     width: 100%;
     max-width: 1400px;
     margin: 20px auto;
-    border-radius: 24px;
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-.slide {
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    position: relative;
+    width: 100%;
+    flex-shrink: 0;
     display: none;
-    width: 100%;
 }
 
-.slide.active {
+.carousel-item.active {
     display: block;
-    animation: fade 0.4s ease;
 }
 
-@keyframes fade {
-    from { opacity: 0.4; }
-    to { opacity: 1; }
-}
-
-.slide img {
+/* Banner desktop (oculto en móvil) */
+.banner_img_desk {
     width: 100%;
     display: block;
-    object-fit: cover;
-    aspect-ratio: 3 / 1;
 }
 
-.prev, .next {
+.banner_img_mobile {
+    display: none;
+}
+
+/* Contenido del banner (texto superpuesto) */
+.ael-home-banner__content {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    max-width: 500px;
+    z-index: 5;
+    color: white;
+}
+
+.contexto {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.titulo_banner {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.texto_banner {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: rgba(255,255,255,0.9);
+}
+
+.btn_blanco_AEL {
+    display: inline-block;
+    background: white;
+    color: #008f68;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn_blanco_AEL:hover {
+    background: #008f68;
+    color: white;
+}
+
+/* Flechas del slider */
+.slider-prev, .slider-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    border: none;
-    border-radius: 50%;
+    width: 44px;
+    height: 44px;
     background: rgba(0,0,0,0.5);
-    color: white;
-    cursor: pointer;
-    font-size: 20px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
+    cursor: pointer;
+    z-index: 20;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    transition: 0.2s;
 }
 
-.prev { left: 15px; }
-.next { right: 15px; }
+.slider-prev { left: 20px; }
+.slider-next { right: 20px; }
 
-.dots {
+.slider-prev:hover, .slider-next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+/* Dots */
+.slider-dots {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
-    z-index: 10;
+    gap: 12px;
+    z-index: 20;
 }
 
 .dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.5);
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .dot.active {
     background: #008f68;
-    width: 24px;
+    width: 28px;
     border-radius: 10px;
 }
 
-/* === HERO === */
+/* === RESPONSIVE SLIDER (móvil) === */
+@media (max-width: 768px) {
+    .banner_img_desk {
+        display: none;
+    }
+    .banner_img_mobile {
+        display: block;
+        width: 100%;
+    }
+    .ael-home-banner__content {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        max-width: 100%;
+        padding: 40px 20px;
+        background: linear-gradient(135deg, #1e3a2f, #2c7a4b);
+        text-align: center;
+        border-radius: 20px 20px 0 0;
+    }
+    .titulo_banner {
+        font-size: 24px;
+    }
+    .contexto {
+        font-size: 12px;
+    }
+    .texto_banner {
+        font-size: 14px;
+    }
+    .slider-prev, .slider-next {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+}
+
+/* === HERO (sección de política) === */
 .hero {
     background: linear-gradient(135deg, #f0f9f4 0%, #e2f0e8 100%);
     padding: 50px 20px;
@@ -465,16 +562,14 @@ body {
     z-index: 99;
 }
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE GENERAL === */
 @media (max-width: 992px) {
     .main-menu, .right-menu, .navbar {
         display: none;
     }
-    
     .menu-toggle {
         display: block;
     }
-    
     .top-container {
         justify-content: space-between;
     }
@@ -486,27 +581,12 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .hero-content h1 {
-        font-size: 28px;
+        font-size: 24px;
     }
-    .slide img {
-        aspect-ratio: 16 / 9;
-    }
-    .prev, .next {
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
-    }
-    .info-cards {
-        flex-direction: column;
-    }
-    .cards {
-        grid-template-columns: 1fr;
-    }
-    .mobile-menu a {
-        font-size: 16px;
-        padding: 14px 0;
+    .titulo_banner {
+        font-size: 20px;
     }
 }
 </style>
@@ -520,14 +600,12 @@ body {
             <h2>aportes<br>en línea</h2>
         </div>
         
-        <!-- Botón hamburguesa -->
         <button class="menu-toggle" id="menuToggle">
             <span></span>
             <span></span>
             <span></span>
         </button>
         
-        <!-- Menú escritorio -->
         <nav class="main-menu">
             <a href="#">Empresas</a>
             <a href="#" class="active-tab">Independientes</a>
@@ -543,7 +621,6 @@ body {
     </div>
 </header>
 
-<!-- Navbar escritorio -->
 <nav class="navbar">
     <div class="nav-container">
         <a class="active" href="#">Inicio</a>
@@ -553,54 +630,83 @@ body {
     </div>
 </nav>
 
-<!-- MENÚ MÓVIL - PANTALLA COMPLETA DESDE DERECHA -->
-<div class="mobile-menu" id="mobileMenu">
-    <button class="close-menu" id="closeMenu">&times;</button>
+<!-- SLIDER NUEVO (exactamente con la estructura que mostraste) -->
+<div class="slider-container">
+    <div class="carousel-inner" id="carouselInner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="ael-home-banner__content">
+                <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
+                <div class="titulo_banner">WHATSAPP OFICIAL, SEGURO RÁPIDO Y SIEMPRE CONTIGO</div>
+                <div class="texto_banner"><p>Realiza tus trámites en minutos desde nuestro canal verificado</p></div>
+                <a class="btn_blanco_AEL" href="https://wa.me/573152060426?text=Hi%22" target="_blank">Escríbenos aquí</a>
+            </div>
+            <img class="banner_img_desk" src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014" alt="">
+            <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108" alt="">
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+            <div class="ael-home-banner__content">
+                <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
+                <div class="titulo_banner">¿REALIZAS TUS APORTES COMO INDEPENDIENTE?</div>
+                <div class="texto_banner"><p>Ingresa fácil y rápido desde la opción Independientes &gt; Iniciar sesión &gt; Portal de Independientes y accede con tu usuario y contraseña.</p></div>
+            </div>
+            <img class="banner_img_desk" src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039" alt="">
+            <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734" alt="">
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+            <div class="ael-home-banner__content">
+                <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
+                <div class="titulo_banner">¿VAS A PAGAR LA SEGURIDAD SOCIAL DE TU EMPLEADO DOMÉSTICO?</div>
+                <div class="texto_banner"><p>¡Hazlo fácil y rápido! desde la opción Independientes &gt; Iniciar sesión &gt; Portal Empleador y usa tu usuario y contraseña para continuar.</p></div>
+            </div>
+            <img class="banner_img_desk" src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+5%402x.png/3a348986-0191-b916-c2e3-9b615c92117f?t=1768617198694" alt="">
+            <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+7%402x+%281%29.png/6cf55102-7478-905e-2c1a-f9d9e24d4dcb?t=1768618236489" alt="">
+        </div>
+        
+        <!-- Slide 4 -->
+        <div class="carousel-item">
+            <div class="ael-home-banner__content">
+                <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
+                <div class="titulo_banner">POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES</div>
+                <div class="texto_banner">Hemos actualizado nuestra política te invitamos a consultarla</div>
+                <a class="btn_blanco_AEL" href="/b/politica-de-proteccion-de-datos" target="_blank">Ingresa aquí</a>
+            </div>
+            <img class="banner_img_desk" src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670" alt="">
+            <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233" alt="">
+        </div>
+        
+        <!-- Slide 5 -->
+        <div class="carousel-item">
+            <div class="ael-home-banner__content">
+                <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
+                <div class="titulo_banner">Nuevo tipo de cotizante para internos de medicina</div>
+                <div class="texto_banner"><p>Resolución 0010 de 2026 (cotizante 73 – Interno de Medicina)</p></div>
+                <a class="btn_blanco_AEL" href="/b/nuevo-tipo-de-cotizante-para-internos-de-medicina-" target="_blank">Conoce más aquí</a>
+            </div>
+            <img class="banner_img_desk" src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS-28-01-2026.png/b0db14ad-99f0-0ea8-fac8-1b5f4b673b06?t=1769633175911" alt="">
+            <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS--IND--CELULAR-28-01-2026.png/c0514fca-cd83-9dd6-96a5-44eef5d3266e?t=1769633194849" alt="">
+        </div>
+        
+        <!-- Slide 6 -->
+        <div class="carousel-item">
+            <div class="ael-home-banner__content">
+                <div class="contexto" style="color:#FAB427;">INDEPENDIENTES</div>
+                <div class="titulo_banner">NO CAIGAS EN FRAUDES</div>
+                <div class="texto_banner">Aportes en Línea no te solicitará efectuar pagos por códigos QR, ni transferencias mediante llave Bre-B</div>
+                <a class="btn_blanco_AEL" href="/b/alerta-por-modalidades-de-fraude-en-pagos-de-aportes" target="_blank">Conoce más aquí</a>
+            </div>
+            <img class="banner_img_desk" src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-FRAUDE+%281%29.png/9bfcf79e-b896-d551-8e83-7567fcdd675a?t=1763496235899" alt="">
+            <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-FRAUDE-mobile-inde.png/8e77cfa9-c407-0920-3c9a-2dadc67a86ab?t=1763496297794" alt="">
+        </div>
+    </div>
     
-    <a href="#">Empresas</a>
-    <a href="#" class="active-tab-mobile">Independientes</a>
-    <a href="#">Administradora</a>
-    <a href="#">Datos en línea</a>
-    <a href="#">Medios de pago</a>
-    <a href="#">Centro de ayuda</a>
-    <a href="#">Inicio</a>
-    <a href="#">Quiénes somos</a>
-    <a href="#">Productos</a>
-    <a href="#">Contáctenos</a>
-    <a href="#" class="login-btn-mobile">Inicia sesión</a>
-</div>
-
-<div class="overlay" id="overlay"></div>
-
-<!-- SLIDER -->
-<div class="slider">
-    <div class="slide active">
-        <picture>
-            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108">
-            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP+%281%29.png/036f03b2-f02c-0804-41df-41f7fdaad245?t=1763496006014" alt="banner 1">
-        </picture>
-    </div>
-    <div class="slide">
-        <picture>
-            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS--IND--CELULAR-28-01-2026.png/c0514fca-cd83-9dd6-96a5-44eef5d3266e?t=1769633194849">
-            <img src="https://www.aportesenlinea.com/documents/53176/0/BANNER-NUEVO-APORTANTE-INTERNOS-28-01-2026.png/b0db14ad-99f0-0ea8-fac8-1b5f4b673b06?t=1769633175911" alt="banner 2">
-        </picture>
-    </div>
-    <div class="slide">
-        <picture>
-            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734">
-            <img src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039" alt="banner 3">
-        </picture>
-    </div>
-    <div class="slide">
-        <picture>
-            <source media="(max-width:768px)" srcset="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233">
-            <img src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-PC.jpg/ec151587-ccab-0850-3e9f-8db32ce3a723?t=1773248779670" alt="banner 4">
-        </picture>
-    </div>
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-    <div class="dots"></div>
+    <div class="slider-prev">&#10094;</div>
+    <div class="slider-next">&#10095;</div>
+    <div class="slider-dots" id="sliderDots"></div>
 </div>
 
 <section class="hero">
@@ -643,11 +749,11 @@ body {
 <div class="chat">🤖</div>
 
 <script>
-// Menú hamburguesa - despliegue desde derecha
+// ========== MENÚ HAMBURGUESA ==========
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const overlay = document.getElementById('overlay');
-const closeMenu = document.getElementById('closeMenu');
+const closeMenuBtn = document.getElementById('closeMenu');
 
 function openMenu() {
     mobileMenu.classList.add('open');
@@ -661,58 +767,62 @@ function closeMenuFunc() {
     document.body.style.overflow = '';
 }
 
-menuToggle.addEventListener('click', openMenu);
-closeMenu.addEventListener('click', closeMenuFunc);
-overlay.addEventListener('click', closeMenuFunc);
+if (menuToggle) menuToggle.addEventListener('click', openMenu);
+if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenuFunc);
+if (overlay) overlay.addEventListener('click', closeMenuFunc);
 
-// Cerrar al hacer click en un enlace del menú móvil
 document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', closeMenuFunc);
 });
 
-// Slider
-const slides = document.querySelectorAll('.slider .slide');
-const dotsContainer = document.querySelector('.slider .dots');
+// ========== SLIDER ==========
+const slides = document.querySelectorAll('.carousel-item');
+const prevBtn = document.querySelector('.slider-prev');
+const nextBtn = document.querySelector('.slider-next');
+const dotsContainer = document.getElementById('sliderDots');
 let currentIndex = 0;
 let autoInterval;
 
-if (dotsContainer) {
+// Crear dots
+function createDots() {
     dotsContainer.innerHTML = '';
-    slides.forEach((_, idx) => {
+    slides.forEach((_, i) => {
         const dot = document.createElement('div');
         dot.classList.add('dot');
-        if (idx === 0) dot.classList.add('active');
+        if (i === currentIndex) dot.classList.add('active');
         dot.addEventListener('click', () => {
             stopAutoSlide();
-            showSlide(idx);
+            goToSlide(i);
             startAutoSlide();
         });
         dotsContainer.appendChild(dot);
     });
 }
 
-const dots = document.querySelectorAll('.slider .dot');
-
-function showSlide(index) {
+function goToSlide(index) {
     if (index < 0) index = 0;
     if (index >= slides.length) index = slides.length - 1;
+    
     slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
     slides[index].classList.add('active');
-    if (dots[index]) dots[index].classList.add('active');
+    
+    document.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+    
     currentIndex = index;
 }
 
 function nextSlide() {
     let newIndex = currentIndex + 1;
     if (newIndex >= slides.length) newIndex = 0;
-    showSlide(newIndex);
+    goToSlide(newIndex);
 }
 
 function prevSlide() {
     let newIndex = currentIndex - 1;
     if (newIndex < 0) newIndex = slides.length - 1;
-    showSlide(newIndex);
+    goToSlide(newIndex);
 }
 
 function startAutoSlide() {
@@ -724,25 +834,29 @@ function stopAutoSlide() {
     if (autoInterval) clearInterval(autoInterval);
 }
 
-document.querySelector('.slider .next')?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    stopAutoSlide();
-    nextSlide();
-    startAutoSlide();
-});
-document.querySelector('.slider .prev')?.addEventListener('click', (e) => {
-    e.stopPropagation();
+// Eventos
+if (prevBtn) prevBtn.addEventListener('click', () => {
     stopAutoSlide();
     prevSlide();
     startAutoSlide();
 });
+if (nextBtn) nextBtn.addEventListener('click', () => {
+    stopAutoSlide();
+    nextSlide();
+    startAutoSlide();
+});
 
+// Inicializar
+createDots();
 startAutoSlide();
 
-const sliderBox = document.querySelector('.slider');
-if (sliderBox) {
-    sliderBox.addEventListener('mouseenter', stopAutoSlide);
-    sliderBox.addEventListener('mouseleave', startAutoSlide);
+// Pausar al pasar mouse
+const sliderContainer = document.querySelector('.slider-container');
+if (sliderContainer) {
+    sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+    sliderContainer.addEventListener('mouseleave', startAutoSlide);
+    sliderContainer.addEventListener('touchstart', stopAutoSlide);
+    sliderContainer.addEventListener('touchend', startAutoSlide);
 }
 </script>
 </body>
