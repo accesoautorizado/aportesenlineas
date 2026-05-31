@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-<title>Aportes en Línea - Independientes | Slider con texto e imágenes</title>
+<title>Aportes en Línea - Independientes | Menú Hamburguesa + Slider</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,7 +65,7 @@ body {
     font-weight: 700;
 }
 
-/* === BOTÓN HAMBURGUESA === */
+/* === BOTÓN HAMBURGUESA (TRES RAYITAS) === */
 .menu-toggle {
     display: none;
     background: none;
@@ -235,6 +235,7 @@ body {
     padding: 14px;
     font-weight: 600;
     font-size: 18px;
+    display: block;
 }
 
 .overlay {
@@ -266,13 +267,11 @@ body {
 .carousel-inner {
     position: relative;
     width: 100%;
-    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
     position: relative;
     width: 100%;
-    flex-shrink: 0;
     display: none;
 }
 
@@ -320,6 +319,10 @@ body {
     font-size: 16px;
     margin-bottom: 20px;
     color: rgba(255,255,255,0.9);
+}
+
+.texto_banner p {
+    margin: 0;
 }
 
 .btn_blanco_AEL {
@@ -600,12 +603,14 @@ body {
             <h2>aportes<br>en línea</h2>
         </div>
         
+        <!-- BOTÓN HAMBURGUESA (TRES RAYITAS) -->
         <button class="menu-toggle" id="menuToggle">
             <span></span>
             <span></span>
             <span></span>
         </button>
         
+        <!-- Menú escritorio -->
         <nav class="main-menu">
             <a href="#">Empresas</a>
             <a href="#" class="active-tab">Independientes</a>
@@ -630,7 +635,25 @@ body {
     </div>
 </nav>
 
-<!-- SLIDER NUEVO (exactamente con la estructura que mostraste) -->
+<!-- MENÚ MÓVIL DESPLEGABLE (TODAS LAS OPCIONES) -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenu">&times;</button>
+    <a href="#">Empresas</a>
+    <a href="#" class="active-tab-mobile">Independientes</a>
+    <a href="#">Administradora</a>
+    <a href="#">Datos en línea</a>
+    <a href="#">Medios de pago</a>
+    <a href="#">Centro de ayuda</a>
+    <a href="#">Inicio</a>
+    <a href="#">Quiénes somos</a>
+    <a href="#">Productos</a>
+    <a href="#">Contáctenos</a>
+    <a href="#" class="login-btn-mobile">Inicia sesión</a>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- SLIDER NUEVO -->
 <div class="slider-container">
     <div class="carousel-inner" id="carouselInner">
         <!-- Slide 1 -->
@@ -783,8 +806,8 @@ const dotsContainer = document.getElementById('sliderDots');
 let currentIndex = 0;
 let autoInterval;
 
-// Crear dots
 function createDots() {
+    if (!dotsContainer) return;
     dotsContainer.innerHTML = '';
     slides.forEach((_, i) => {
         const dot = document.createElement('div');
@@ -834,7 +857,6 @@ function stopAutoSlide() {
     if (autoInterval) clearInterval(autoInterval);
 }
 
-// Eventos
 if (prevBtn) prevBtn.addEventListener('click', () => {
     stopAutoSlide();
     prevSlide();
@@ -846,11 +868,9 @@ if (nextBtn) nextBtn.addEventListener('click', () => {
     startAutoSlide();
 });
 
-// Inicializar
 createDots();
 startAutoSlide();
 
-// Pausar al pasar mouse
 const sliderContainer = document.querySelector('.slider-container');
 if (sliderContainer) {
     sliderContainer.addEventListener('mouseenter', stopAutoSlide);
