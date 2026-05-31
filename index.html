@@ -1,5 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Aportes en Línea - Independientes</title>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* ========== SLIDER BANNER CORREGIDO PARA MÓVIL ========== */
+/* ========== RESET Y VARIABLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #007A5E;
+    --color-primary-dark: #00634B;
+    --color-secondary: #FAB427;
+    --color-dark: #272833;
+    --color-gray: #6B6C7E;
+    --color-light-gray: #F7F8F9;
+    --color-border: #CDCED9;
+    --color-white: #FFFFFF;
+    --font-poppins: 'Poppins', sans-serif;
+    --font-rubik: 'Rubik', sans-serif;
+}
+
+body {
+    font-family: var(--font-rubik);
+    background: var(--color-white);
+    overflow-x: hidden;
+}
+
+/* ========== HEADER ========== */
+.top-header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.top-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+}
+
+.logo img {
+    height: 48px;
+    width: auto;
+}
+
+/* Menú desktop */
+.main-menu {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: 14px;
+    font-family: var(--font-rubik);
+    transition: color 0.2s;
+}
+
+.main-menu a:hover,
+.main-menu a.active {
+    color: var(--color-primary);
+}
+
+.active-tab {
+    padding: 6px 18px;
+    border: 1px solid #9be3bf;
+    border-radius: 40px;
+    background: #edfdf3;
+    color: var(--color-primary) !important;
+    font-weight: 600;
+}
+
+.right-menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.right-menu a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: 13px;
+    font-family: var(--font-rubik);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.login-btn {
+    background: var(--color-primary);
+    color: var(--color-white) !important;
+    border: none;
+    border-radius: 40px;
+    padding: 8px 22px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.login-btn:hover {
+    background: var(--color-primary-dark);
+}
+
+/* ========== NAVBAR SUBMENÚ ========== */
+.navbar-submenu {
+    background: var(--color-white);
+    border-bottom: 1px solid #ececec;
+}
+
+.navbar-submenu-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 12px 20px;
+}
+
+.navbar-submenu-container a {
+    text-decoration: none;
+    color: #5d5d5d;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-rubik);
+    padding-bottom: 12px;
+}
+
+.navbar-submenu-container a.active {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
+}
+
+/* ========== BOTÓN HAMBURGUESA (MÓVIL) ========== */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-dark);
+    margin: 5px 0;
+    border-radius: 2px;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-white);
+    z-index: 200;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    padding: 70px 20px 30px;
+}
+
+.mobile-menu-overlay.open {
+    right: 0;
+}
+
+.mobile-menu-overlay .close-menu {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+.mobile-menu-overlay a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-dark);
+    padding: 14px 0;
+    border-bottom: 1px solid #e0ece5;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.mobile-menu-overlay a.active {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.mobile-menu-overlay .login-btn-mobile {
+    background: var(--color-primary);
+    color: white;
+    text-align: center;
+    border-radius: 40px;
+    margin-top: 20px;
+    padding: 12px;
+}
+
+.overlay-dark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 150;
+    display: none;
+}
+
+.overlay-dark.show {
+    display: block;
+}
+
+/* ========== SLIDER BANNER CORREGIDO ========== */
 .ael-home-banner {
     position: relative;
     width: 100%;
@@ -25,19 +264,16 @@
     display: block;
 }
 
-/* Imagen desktop */
 .banner_img_desk {
     width: 100%;
     display: block;
 }
 
-/* Imagen móvil - se muestra solo en móvil */
 .banner_img_mobile {
     display: none;
     width: 100%;
 }
 
-/* Contenido del banner - superpuesto sobre la imagen */
 .ael-home-banner__content {
     position: absolute;
     top: 50%;
@@ -90,7 +326,6 @@
     color: white;
 }
 
-/* Flechas del slider */
 .carousel-control-prev, .carousel-control-next {
     position: absolute;
     top: 50%;
@@ -112,7 +347,6 @@
 .carousel-control-prev { left: 20px; }
 .carousel-control-next { right: 20px; }
 
-/* Dots indicadores */
 .carousel-indicators {
     position: absolute;
     bottom: 20px;
@@ -141,9 +375,8 @@
     border-radius: 10px;
 }
 
-/* ========== RESPONSIVE MÓVIL ========== */
+/* ========== RESPONSIVE MÓVIL SLIDER ========== */
 @media (max-width: 768px) {
-    /* Ocultar imagen desktop, mostrar móvil */
     .banner_img_desk {
         display: none;
     }
@@ -155,7 +388,6 @@
         object-fit: cover;
     }
     
-    /* Contenido superpuesto - ajustado para móvil */
     .ael-home-banner__content {
         position: absolute;
         top: 50%;
@@ -234,12 +466,749 @@
         font-size: 11px;
     }
 }
-</style>
 
-<!-- SLIDER BANNER CORREGIDO -->
+/* ========== SECCIÓN HAZLO FÁCIL ========== */
+.containerSelfService {
+    max-width: 1400px;
+    margin: -40px auto 40px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 30px;
+    display: flex;
+    gap: 40px;
+    position: relative;
+    z-index: 10;
+    flex-wrap: wrap;
+}
+
+.containerContent {
+    flex: 1;
+    min-width: 250px;
+}
+
+.content {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+}
+
+.contenSub {
+    font-size: 16px;
+    color: var(--color-gray);
+}
+
+.cardsContent {
+    flex: 2;
+}
+
+.cardSubContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+.cardUni {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s;
+}
+
+.cardUni:hover {
+    border-color: var(--color-primary);
+    background: #f9f9f9;
+}
+
+.cardUni a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: 14px;
+    flex: 1;
+}
+
+.cardUni img {
+    width: 24px;
+    height: 24px;
+}
+
+.textoBotonMenuBanner {
+    flex: 1;
+}
+
+.infoIma {
+    cursor: pointer;
+}
+
+.tooltipael {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltipael .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #111116;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+.tooltipael:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ========== CONFÍAMOS EN MEJORAR ========== */
+.containerMain {
+    background: var(--color-white);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.titleText {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+}
+
+.subtitleText {
+    font-size: 16px;
+    color: var(--color-gray);
+    margin-bottom: 40px;
+}
+
+.tabs-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 0 16px;
+    border-right: 1px solid #E7E7ED;
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.titleTab {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.subTitleTab {
+    font-size: 16px;
+    color: #393A4A;
+}
+
+.enlaceItemIU {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 50px;
+    margin-top: 40px;
+    font-weight: 500;
+}
+
+/* ========== BENEFICIOS ========== */
+.componente-principal-beneficios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    background: var(--color-light-gray);
+    padding: 60px 20px;
+    flex-wrap: wrap;
+}
+
+.texto-beneficios {
+    max-width: 500px;
+}
+
+.texto-beneficios .pr-txt-benf {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-dark);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.texto-beneficios .sc-txt-benf {
+    font-size: 16px;
+    color: var(--color-gray);
+    display: block;
+    margin-bottom: 30px;
+}
+
+.btn-txt-benf {
+    display: inline-block;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 48px;
+    padding: 12px 28px;
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: 500;
+}
+
+.interno-descuentos {
+    position: relative;
+    padding: 20px;
+}
+
+.tarjeta-cupon {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 16px;
+    margin: 12px 0;
+    width: 320px;
+}
+
+.tarjeta-cupon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.porc-des {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+/* ========== GESTIÓN DE CONOCIMIENTOS ========== */
+.ael-gc {
+    padding: 50px 20px;
+    background: var(--color-white);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.ael-gc__header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ael-gc__eyebrow {
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.ael-gc__title {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+}
+
+.ael-gc__subtitle {
+    font-size: 16px;
+    color: var(--color-gray);
+}
+
+.ael-gc__tablist {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.ael-gc__tab {
+    background: none;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--color-gray);
+    position: relative;
+}
+
+.ael-gc__tab.active {
+    color: var(--color-primary);
+}
+
+.ael-gc__tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+}
+
+.ael-gc__panel {
+    display: none;
+}
+
+.ael-gc__panel.active {
+    display: block;
+}
+
+.ael-gc__accordion-item {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.ael-gc__accordion-trigger {
+    width: 100%;
+    padding: 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ael-gc__accordion-trigger::after {
+    content: '▼';
+    font-size: 12px;
+    transition: transform 0.2s;
+}
+
+.ael-gc__accordion-trigger.open::after {
+    transform: rotate(180deg);
+}
+
+.ael-gc__accordion-panel {
+    display: none;
+    padding: 0 20px 20px;
+}
+
+.ael-gc__accordion-panel.open {
+    display: block;
+}
+
+.ael-gc__card {
+    background: var(--color-light-gray);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.ael-gc__button {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ========== PODRÍA INTERESARTE ========== */
+.ael-pi {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    background: var(--color-light-gray);
+}
+
+.ael-pi__header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ael-pi__title {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 12px;
+}
+
+.ael-pi__body-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ael-pi__item {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.ael-pi__trigger {
+    width: 100%;
+    padding: 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ael-pi__trigger::after {
+    content: '▼';
+    font-size: 12px;
+    transition: transform 0.2s;
+}
+
+.ael-pi__trigger.open::after {
+    transform: rotate(180deg);
+}
+
+.ael-pi__panel {
+    display: none;
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.ael-pi__panel.open {
+    display: block;
+}
+
+.tablepi {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+}
+
+.columpi {
+    flex: 1;
+    min-width: 120px;
+}
+
+.titleColum {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-dark);
+}
+
+.contentColum {
+    display: block;
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--color-gray);
+}
+
+.atextpi {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.last_btn_PI {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ========== FOOTER ========== */
+.ael-footer {
+    background: #1a2c2a;
+    color: white;
+    padding: 40px 20px;
+}
+
+.ael-footer__row {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.ael-footer__cols {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.ael-footer__col {
+    flex: 1;
+    min-width: 180px;
+}
+
+.ael-footer__title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.ael-footer__link {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.ael-footer__link:hover {
+    color: white;
+}
+
+.ael-footer-social {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.ael-footer-social__img {
+    width: 32px;
+    height: 32px;
+}
+
+.ael-footer__copy {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #3a4a48;
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* ========== BOTÓN FLOTANTE ========== */
+.navMenSup {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99;
+}
+
+.navMenSup input {
+    display: none;
+}
+
+.navMenSup label {
+    width: 60px;
+    height: 60px;
+    background: #EBFEF6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.navMenSup label img {
+    width: 32px;
+}
+
+.menuSuport {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    list-style: none;
+}
+
+.menuSuport li {
+    margin-bottom: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.conten-sup-ite {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.linkSuportBtn {
+    background: #EBFEF6;
+    border: 1px solid #A4F6D5;
+    padding: 8px 16px;
+    border-radius: 24px;
+    text-decoration: none;
+    color: #012D25;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.navMenSup input:checked ~ .menuSuport li {
+    opacity: 1;
+    visibility: visible;
+}
+
+.navMenSup input:checked ~ .menuSuport li:nth-child(1) { transform: translateY(-80px); }
+.navMenSup input:checked ~ .menuSuport li:nth-child(2) { transform: translateY(-140px); }
+.navMenSup input:checked ~ .menuSuport li:nth-child(3) { transform: translateY(-200px); }
+
+/* ========== MODAL ========== */
+.popup-menu-flotante {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none;
+    max-width: 90%;
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.popup-menu-flotante img {
+    max-width: 100%;
+    height: auto;
+}
+
+.blck_all {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 90;
+    display: none;
+}
+
+/* ========== RESPONSIVE GENERAL ========== */
+@media (max-width: 992px) {
+    .main-menu, .right-menu, .navbar-submenu {
+        display: none;
+    }
+    
+    .hamburger-btn {
+        display: block;
+    }
+    
+    .top-container {
+        justify-content: space-between;
+    }
+    
+    .containerSelfService {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    
+    .tabs-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-item {
+        border-right: none;
+        border-bottom: 1px solid #E7E7ED;
+        padding: 20px;
+    }
+    
+    .componente-principal-beneficios {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .ael-footer__cols {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="top-header">
+    <div class="top-container">
+        <div class="logo">
+            <img src="https://www.aportesenlinea.com/o/aportes-en-linea-theme/images/logoAEL70.png" alt="Aportes en Línea">
+        </div>
+        
+        <button class="hamburger-btn" id="hamburgerBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <nav class="main-menu">
+            <a href="#">Empresas</a>
+            <a href="#" class="active-tab">Independientes</a>
+            <a href="#">Administradora</a>
+            <a href="#">Datos en línea</a>
+        </nav>
+        
+        <div class="right-menu">
+            <a href="#"><i class="bi bi-currency-dollar"></i> Medios de pago</a>
+            <a href="#"><i class="bi bi-info-circle"></i> Centro de ayuda</a>
+            <button class="login-btn">Inicia sesión</button>
+        </div>
+    </div>
+</header>
+
+<!-- ========== SUBMENÚ ========== -->
+<nav class="navbar-submenu">
+    <div class="navbar-submenu-container">
+        <a href="#" class="active">Inicio</a>
+        <a href="#">Quiénes somos</a>
+        <a href="#">Productos</a>
+        <a href="#">Contáctenos</a>
+    </div>
+</nav>
+
+<!-- ========== MENÚ MÓVIL ========== -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+    <button class="close-menu" id="closeMenuBtn">&times;</button>
+    <a href="#" class="active">Inicio</a>
+    <a href="#">Quiénes somos</a>
+    <a href="#">Productos</a>
+    <a href="#">Contáctenos</a>
+    <a href="#">Empresas</a>
+    <a href="#">Independientes</a>
+    <a href="#">Administradora</a>
+    <a href="#">Datos en línea</a>
+    <a href="#">Medios de pago</a>
+    <a href="#">Centro de ayuda</a>
+    <a href="#" class="login-btn-mobile">Inicia sesión</a>
+</div>
+<div class="overlay-dark" id="overlayDark"></div>
+
+<!-- ========== SLIDER BANNER CORREGIDO ========== -->
 <div id="carouselExampleIndicators" class="ael-home-banner carousel slide">
     <div class="carousel-inner">
-        <!-- Slide 1 -->
+        <!-- Slide 1 - WhatsApp -->
         <div class="carousel-item active">
             <div class="ael-home-banner__content">
                 <div class="contexto">INDEPENDIENTES</div>
@@ -251,7 +1220,7 @@
             <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/BANNERS-WHATSAPP-MOBILE.png/2e2897db-7c26-48ae-0a96-26bbd557ac0e?t=1763494890108" alt="">
         </div>
         
-        <!-- Slide 2 -->
+        <!-- Slide 2 - Política de Datos -->
         <div class="carousel-item">
             <div class="ael-home-banner__content">
                 <div class="contexto">INDEPENDIENTES</div>
@@ -263,18 +1232,18 @@
             <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/PTD-INDEPE-MOBILE.jpg/650f6f97-b51c-85e6-f22b-b0fd4a4f12c0?t=1773248799233" alt="">
         </div>
         
-        <!-- Slide 3 -->
+        <!-- Slide 3 - Aportes Independiente -->
         <div class="carousel-item">
             <div class="ael-home-banner__content">
                 <div class="contexto">INDEPENDIENTES</div>
                 <div class="titulo_banner">¿REALIZAS TUS APORTES COMO INDEPENDIENTE?</div>
-                <div class="texto_banner">Ingresa fácil y rápido desde la opción Independientes > Iniciar sesión</div>
+                <div class="texto_banner">Ingresa fácil y rápido desde la opción Independientes > Iniciar sesión > Portal de Independientes</div>
             </div>
             <img class="banner_img_desk" src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+4+copia+4%402x.png/512b28c9-99e8-493c-f4af-0b9272987882?t=1768617119039" alt="">
             <img class="banner_img_mobile" src="https://www.aportesenlinea.com/documents/53176/0/Mesa+de+trabajo+6%402x.png/e0f250e9-fef3-6519-5198-57d7f4074fe7?t=1768617938734" alt="">
         </div>
         
-        <!-- Slide 4 -->
+        <!-- Slide 4 - Internos de Medicina -->
         <div class="carousel-item">
             <div class="ael-home-banner__content">
                 <div class="contexto">INDEPENDIENTES</div>
@@ -287,15 +1256,9 @@
         </div>
     </div>
     
-    <!-- Flechas -->
-    <a class="carousel-control-prev" href="#" role="button">
-        <i class="bi bi-chevron-left">‹</i>
-    </a>
-    <a class="carousel-control-next" href="#" role="button">
-        <i class="bi bi-chevron-right">›</i>
-    </a>
+    <a class="carousel-control-prev" href="#" role="button">‹</a>
+    <a class="carousel-control-next" href="#" role="button">›</a>
     
-    <!-- Dots -->
     <ol class="carousel-indicators">
         <li class="active"></li>
         <li></li>
@@ -304,57 +1267,345 @@
     </ol>
 </div>
 
+<!-- ========== HAZLO FÁCIL ========== -->
+<div class="containerSelfService">
+    <div class="containerContent">
+        <div class="content">Hazlo fácil</div>
+        <div class="contenSub">Paga tus aportes de forma ágil y sin autenticarte</div>
+    </div>
+    <div class="cardsContent">
+        <div class="cardSubContent">
+            <div class="cardUni">
+                <a href="#">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/calculator.png/18bc6ca6-628b-e4ec-a0a2-41c1cf211a9a?t=1741878034789" alt="">
+                    <span class="textoBotonMenuBanner">Calcula tu aportes</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Calcula tu aportes</span>
+                </div>
+            </div>
+            <div class="cardUni">
+                <a href="#">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/bitcoin-convert.png/fcfa74df-f381-4a99-e52d-1d538e7b41e2?t=1739907918037" alt="">
+                    <span class="textoBotonMenuBanner">Liquida y paga tu aporte</span>
+                </a>
+                <div class="infoIma tooltipael">
+                    <img src="https://www.aportesenlinea.com/documents/53176/0/info-circle.png/3d5c26c7-4b97-ecc9-2080-de5b3d1210e9?t=1739908000427" alt="">
+                    <span class="tooltiptext">Liquida y paga tu aporte</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== CONFÍAMOS EN MEJORAR ========== -->
+<div class="containerMain">
+    <h2 class="titleText">Confiamos en mejorar la vida de los colombianos</h2>
+    <p class="subtitleText">Contamos con el 47.8 % de participación</p>
+    
+    <div class="tabs-row">
+        <div class="stat-item">
+            <div class="titleTab">180 K</div>
+            <div class="subTitleTab">Empresas usan la plataforma mensualmente</div>
+        </div>
+        <div class="stat-item">
+            <div class="titleTab">690 K</div>
+            <div class="subTitleTab">Independientes utilizan nuestros servicios</div>
+        </div>
+        <div class="stat-item">
+            <div class="titleTab">8.1 M</div>
+            <div class="subTitleTab">Trabajadores liquidan y pagan sus aportes con nosotros</div>
+        </div>
+    </div>
+    
+    <a class="enlaceItemIU" href="#">Regístrate con nosotros</a>
+</div>
+
+<!-- ========== BENEFICIOS ========== -->
+<div class="componente-principal-beneficios">
+    <div class="texto-beneficios">
+        <span class="pr-txt-benf">Conoce cuáles son los beneficios que tienes como aportante</span>
+        <span class="sc-txt-benf">Contamos con más de 40 marcas aliadas, obtén descuentos hasta del 50% a través de nuestros convenios, descúbrelos</span>
+        <a class="btn-txt-benf" href="#">Conoce los beneficios</a>
+    </div>
+    <div class="info-beneficios">
+        <div class="interno-descuentos">
+            <div class="tarjeta-cupon">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/bufalo.png/4b7f4c05-8c67-487f-7e75-bbb29e498f5a?t=1763996384132" alt="">
+                <div>
+                    <div class="porc-des">Del -15% al -10%</div>
+                    <div>dependiendo del día</div>
+                </div>
+            </div>
+            <div class="tarjeta-cupon">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/oster.png/9303cacb-f10d-b913-2da3-b721cf12ddc1?t=1763996478645" alt="">
+                <div>
+                    <div class="porc-des">-20%</div>
+                    <div>En tus compras</div>
+                </div>
+            </div>
+            <div class="tarjeta-cupon">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/Sin-t%C3%ADtulo-1.png/1b12d703-36cd-c275-22a4-a66c54124e09?t=1763996559633" alt="">
+                <div>
+                    <div class="porc-des">Del -5% al -20%</div>
+                    <div>En portafolio</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== GESTIÓN DE CONOCIMIENTOS ========== -->
+<div class="ael-gc">
+    <div class="ael-gc__header">
+        <div class="ael-gc__eyebrow">Herramientas y Metodologías</div>
+        <h2 class="ael-gc__title">Gestión de conocimientos</h2>
+        <div class="ael-gc__subtitle">Haz parte de la transformación digital</div>
+    </div>
+    
+    <div class="ael-gc__tablist">
+        <button class="ael-gc__tab active" data-tab="0">Plataforma de Educación</button>
+        <button class="ael-gc__tab" data-tab="1">Cursos & Diplomados</button>
+    </div>
+    
+    <div class="ael-gc__panels">
+        <div class="ael-gc__panel active" data-panel="0">
+            <div class="ael-gc__accordion-item">
+                <button class="ael-gc__accordion-trigger">Nuestra plataforma</button>
+                <div class="ael-gc__accordion-panel">
+                    <div class="ael-gc__card">
+                        <p>Contamos con una plataforma de formación y actualización empresarial en alianza con Unipymes está enfocada en fortalecer las habilidades de profesionales, independientes, emprendedores y pequeñas y medianas empresas (pymes) en Latinoamérica.</p>
+                        <a class="ael-gc__button" href="#">Conoce más →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ael-gc__panel" data-panel="1">
+            <div class="ael-gc__accordion-item">
+                <button class="ael-gc__accordion-trigger">Temas clave para el crecimiento empresarial</button>
+                <div class="ael-gc__accordion-panel">
+                    <div class="ael-gc__card">
+                        <p>• Marketing digital y ventas<br>• Finanzas, contabilidad y tributación<br>• Gestión empresarial y liderazgo<br>• Talento humano<br>• Innovación y transformación digital<br>• Normatividad laboral y legal<br>• Productividad y operaciones</p>
+                        <a class="ael-gc__button" href="#">Conoce más →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== PODRÍA INTERESARTE ========== -->
+<div class="ael-pi">
+    <div class="ael-pi__header">
+        <h2 class="ael-pi__title">Podría interesarte</h2>
+        <div class="ael-pi__subtitle">Sabes como liquidar tus aportes</div>
+    </div>
+    
+    <div class="ael-pi__body-inner">
+        <div class="ael-pi__item">
+            <button class="ael-pi__trigger">Fechas de pago</button>
+            <div class="ael-pi__panel">
+                <div class="tablepi">
+                    <div class="columpi">
+                        <div class="titleColum">Día hábil</div>
+                        <span class="contentColum">2°</span>
+                        <span class="contentColum">3°</span>
+                        <span class="contentColum">4°</span>
+                        <span class="contentColum">5°</span>
+                    </div>
+                    <div class="columpi">
+                        <div class="titleColum">Fecha Diciembre 2025</div>
+                        <span class="contentColum">2</span>
+                        <span class="contentColum">3</span>
+                        <span class="contentColum">4</span>
+                        <span class="contentColum">5</span>
+                    </div>
+                    <div class="columpi">
+                        <div class="titleColum">Últimos dígitos</div>
+                        <span class="contentColum">00 al 07</span>
+                        <span class="contentColum">08 al 14</span>
+                        <span class="contentColum">15 a 21</span>
+                        <span class="contentColum">22 a 28</span>
+                    </div>
+                </div>
+                <a class="atextpi" href="#">Ir al centro de ayuda</a>
+            </div>
+        </div>
+        
+        <div class="ael-pi__item">
+            <button class="ael-pi__trigger">Cotización del salario mínimo</button>
+            <div class="ael-pi__panel">
+                <p>Conoce el histórico de SMMLV</p>
+                <a class="atextpi" href="#">Histórico de SMMLV</a>
+            </div>
+        </div>
+        
+        <div class="ael-pi__item">
+            <button class="ael-pi__trigger">Tasa de interés moratorio</button>
+            <div class="ael-pi__panel">
+                <p><strong>Mayo 2026</strong></p>
+                <p>La Superintendencia Financiera de Colombia fijó la Tasa de Usura en 28,17% efectivo anual.</p>
+            </div>
+        </div>
+    </div>
+    
+    <a class="last_btn_PI" href="#">Ir al centro de ayuda</a>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="ael-footer">
+    <div class="ael-footer__row">
+        <div class="ael-footer__cols">
+            <div class="ael-footer__col">
+                <img src="https://www.aportesenlinea.com/documents/53176/0/Logo.png/c18977df-55c2-65d4-25a9-06d9de642f3d?t=1739898779520" alt="Logo" style="height: 50px;">
+            </div>
+            <div class="ael-footer__col">
+                <h6 class="ael-footer__title">Ayuda</h6>
+                <a class="ael-footer__link" href="#">Centro de ayuda</a>
+                <a class="ael-footer__link" href="#">Preguntas frecuentes</a>
+                <a class="ael-footer__link" href="#">Contáctenos</a>
+                <a class="ael-footer__link" href="#">Novedades y noticias</a>
+                <a class="ael-footer__link" href="#">Guías y tutoriales</a>
+            </div>
+            <div class="ael-footer__col">
+                <h6 class="ael-footer__title">Políticas</h6>
+                <a class="ael-footer__link" href="#">Políticas de cookies</a>
+                <a class="ael-footer__link" href="#">Protección de datos</a>
+                <a class="ael-footer__link" href="#">Código del buen gobierno</a>
+                <a class="ael-footer__link" href="#">Términos y condiciones</a>
+            </div>
+            <div class="ael-footer__col">
+                <h6 class="ael-footer__title">Legal</h6>
+                <a class="ael-footer__link" href="#">Línea ética</a>
+                
+                <ul class="ael-footer-social">
+                    <li><a href="#"><img class="ael-footer-social__img" src="https://www.aportesenlinea.com/documents/53176/0/FacebookNegative.png/552a0c54-ebe5-d542-ace7-aacd590ff4b2?t=1739899252073" alt="Facebook"></a></li>
+                    <li><a href="#"><img class="ael-footer-social__img" src="https://www.aportesenlinea.com/documents/53176/0/Xtwitter.png/2d91a530-cf39-655e-383e-17811e29c0d8?t=1739899280862" alt="X"></a></li>
+                    <li><a href="#"><img class="ael-footer-social__img" src="https://www.aportesenlinea.com/documents/53176/0/InstagramNegative.png/8b7bd24a-9b60-be39-0ec9-a7f6be0000c7?t=1739899307027" alt="Instagram"></a></li>
+                    <li><a href="#"><img class="ael-footer-social__img" src="https://www.aportesenlinea.com/documents/53176/0/LinkedInNegative.png/4579ef7f-babd-1e1c-a5f6-fc7f7289fdb7?t=1739899332249" alt="LinkedIn"></a></li>
+                    <li><a href="#"><img class="ael-footer-social__img" src="https://www.aportesenlinea.com/documents/53176/0/YouTubeNegative.png/e236b4eb-bf9b-a002-83e1-3f206ed31181?t=1739899357701" alt="YouTube"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="ael-footer__copy">Copyright © 2026 Aportes en Linea</div>
+    </div>
+</footer>
+
+<!-- ========== BOTÓN FLOTANTE ========== -->
+<div class="navMenSup">
+    <input type="checkbox" id="menuFloat">
+    <label for="menuFloat">
+        <img src="https://www.aportesenlinea.com/documents/53176/0/IconoMenuFlotante2+%281%29.png/ba1ae8ef-317a-9893-e116-592e81176934?t=1769189001931" alt="Menu">
+    </label>
+    <ul class="menuSuport">
+        <li>
+            <div class="conten-sup-ite">
+                <a class="linkSuportBtn" href="https://wa.me/573152060426" target="_blank">Whatsapp</a>
+                <img src="https://www.aportesenlinea.com/documents/53176/0/MenuflotanteWhatsapp.png/77ccf8fe-d8df-2b82-86fa-b7a005e81bea?t=1769013226009" alt="">
+            </div>
+        </li>
+        <li>
+            <div class="conten-sup-ite">
+                <button class="linkSuportBtn" onclick="showPhoneModal()">Líneas telefónicas</button>
+                <img src="https://www.aportesenlinea.com/documents/53176/0/call-calling.png/3e3bd65c-3d43-a83a-0c05-d38aeb061763?t=1739974811850" alt="">
+            </div>
+        </li>
+        <li>
+            <div class="conten-sup-ite">
+                <a class="linkSuportBtn" href="#">Contáctenos</a>
+                <img src="https://www.aportesenlinea.com/documents/53176/0/message.png/258964ad-5eeb-b194-99df-f6d8ccbac329?t=1739974911355" alt="">
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- MODAL LÍNEAS TELEFÓNICAS -->
+<div id="phoneModal" class="popup-menu-flotante">
+    <div style="padding: 20px;">
+        <button onclick="closePhoneModal()" style="float: right; background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+        <img src="https://www.aportesenlinea.com/documents/d/home/linea-independiente-pc-1" alt="Líneas telefónicas" style="max-width: 100%;">
+    </div>
+</div>
+<div id="blck_all" class="blck_all"></div>
+
 <script>
-// ========== SLIDER JAVASCRIPT ==========
-const slideItems = document.querySelectorAll('.carousel-item');
-const prevSlideBtn = document.querySelector('.carousel-control-prev');
-const nextSlideBtn = document.querySelector('.carousel-control-next');
-const indicatorDots = document.querySelectorAll('.carousel-indicators li');
-let currentSlideIndex = 0;
-let slideInterval;
+// ========== MENÚ HAMBURGUESA ==========
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const overlayDark = document.getElementById('overlayDark');
+const closeMenuBtn = document.getElementById('closeMenuBtn');
+
+function openMenu() {
+    mobileMenu.classList.add('open');
+    overlayDark.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMenu() {
+    mobileMenu.classList.remove('open');
+    overlayDark.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+hamburgerBtn.addEventListener('click', openMenu);
+closeMenuBtn.addEventListener('click', closeMenu);
+overlayDark.addEventListener('click', closeMenu);
+
+document.querySelectorAll('.mobile-menu-overlay a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+// ========== SLIDER ==========
+const slides = document.querySelectorAll('.carousel-item');
+const prevBtn = document.querySelector('.carousel-control-prev');
+const nextBtn = document.querySelector('.carousel-control-next');
+const dots = document.querySelectorAll('.carousel-indicators li');
+let currentIndex = 0;
+let autoInterval;
 
 function showSlide(index) {
-    if (index < 0) index = slideItems.length - 1;
-    if (index >= slideItems.length) index = 0;
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
     
-    slideItems.forEach(slide => slide.classList.remove('active'));
-    indicatorDots.forEach(dot => dot.classList.remove('active'));
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
     
-    slideItems[index].classList.add('active');
-    indicatorDots[index].classList.add('active');
-    currentSlideIndex = index;
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    currentIndex = index;
 }
 
 function nextSlide() {
-    showSlide(currentSlideIndex + 1);
+    showSlide(currentIndex + 1);
 }
 
 function prevSlide() {
-    showSlide(currentSlideIndex - 1);
+    showSlide(currentIndex - 1);
 }
 
 function startAutoSlide() {
-    if (slideInterval) clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 6000);
+    if (autoInterval) clearInterval(autoInterval);
+    autoInterval = setInterval(nextSlide, 6000);
 }
 
-if (prevSlideBtn) {
-    prevSlideBtn.addEventListener('click', (e) => {
+if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
         e.preventDefault();
         prevSlide();
         startAutoSlide();
     });
 }
 
-if (nextSlideBtn) {
-    nextSlideBtn.addEventListener('click', (e) => {
+if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
         e.preventDefault();
         nextSlide();
         startAutoSlide();
     });
 }
 
-indicatorDots.forEach((dot, i) => {
+dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
         showSlide(i);
         startAutoSlide();
@@ -362,4 +1613,54 @@ indicatorDots.forEach((dot, i) => {
 });
 
 startAutoSlide();
+
+// ========== TABS GESTIÓN ==========
+const tabs = document.querySelectorAll('.ael-gc__tab');
+const panels = document.querySelectorAll('.ael-gc__panel');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const tabIndex = tab.getAttribute('data-tab');
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelector(`.ael-gc__panel[data-panel="${tabIndex}"]`).classList.add('active');
+    });
+});
+
+// ========== ACORDEONES ==========
+document.querySelectorAll('.ael-gc__accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        trigger.classList.toggle('open');
+        trigger.nextElementSibling.classList.toggle('open');
+    });
+});
+
+document.querySelectorAll('.ael-pi__trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        trigger.classList.toggle('open');
+        trigger.nextElementSibling.classList.toggle('open');
+    });
+});
+
+// ========== BOTÓN FLOTANTE ==========
+const menuFloatCheckbox = document.getElementById('menuFloat');
+const blckAll = document.getElementById('blck_all');
+
+menuFloatCheckbox.addEventListener('change', function() {
+    blckAll.style.display = this.checked ? 'block' : 'none';
+});
+
+function showPhoneModal() {
+    document.getElementById('phoneModal').style.display = 'block';
+    blckAll.style.display = 'block';
+    menuFloatCheckbox.checked = false;
+}
+
+function closePhoneModal() {
+    document.getElementById('phoneModal').style.display = 'none';
+    blckAll.style.display = 'none';
+}
 </script>
+</body>
+</html>
