@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maqueta Home Banking</title>
+    <style>
+        /* ===== RESET Y ESTILOS BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #ececec;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            height: 80px;
+            background: #2d6f84;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .top-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            height: calc(100vh - 140px);
+            background: url("fondo.jpg") center center;
+            background-size: cover;
+        }
+
+        .overlay {
+            height: 100%;
+            background: rgba(0, 0, 0, .35);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px;
+        }
+
+        .texto {
+            width: 50%;
+            color: white;
+        }
+
+        .texto h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .texto p {
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        /* ===== LOGIN CARD ===== */
+        .login {
+            width: 360px;
+            background: #0f4b7b;
+            padding: 35px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .login h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .login p {
+            margin-bottom: 20px;
+        }
+
+        .login input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 25px;
+        }
+
+        .login button {
+            width: 100%;
+            padding: 15px;
+            background: white;
+            color: #0f4b7b;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .login a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            height: 60px;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        footer a {
+            color: #444;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h2>Banco Formosa</h2>
+        </div>
+
+        <div class="top-info">
+            <span>📞 0800 777 2262</span>
+            <span>📱 App</span>
+            <span>Facebook</span>
+            <span>Instagram</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="overlay">
+                <div class="texto">
+                    <h1>Te damos la bienvenida a nuestro Home Banking</h1>
+                    <p>
+                        Estamos mejorando constantemente para ofrecer un Home Banking
+                        moderno, seguro y fácil de usar.
+                    </p>
+                </div>
+
+                <div class="login">
+                    <h2>Bienvenido</h2>
+                    <p>Ingresá tus datos</p>
+                    <input type="text" placeholder="Usuario">
+                    <input type="password" placeholder="Contraseña">
+                    <button>CONTINUAR</button>
+                    <a href="#">Olvidé mi usuario</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#">Términos y Condiciones</a>
+        <a href="#">Seguridad</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Sucursales</a>
+        <a href="#">Comisiones</a>
+    </footer>
+
+</body>
+</html>
